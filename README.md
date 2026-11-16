@@ -33,7 +33,9 @@
 | **Number of Test Cases Executed** | **36** *(108 lượt trên 3 trình duyệt)* | Thực thi đầy đủ 36/36 test cases trên mỗi trình duyệt ($36 \times 3 = 108$ lượt chạy). |
 | **Number of Test Cases Passed** | **19** *(57 lượt trên 3 trình duyệt)* | `FR-01`: 8 TCs (24 lượt); `FR-07`: 4 TCs (12 lượt); `FR-12`: 7 TCs (21 lượt). |
 | **Number of Test Cases Failed** | **17** *(51 lượt trên 3 trình duyệt)* | `FR-01`: 4 TCs (12 lượt); `FR-07`: 8 TCs (24 lượt); `FR-12`: 5 TCs (15 lượt) — đều do lỗi thật của SUT. |
-| **Number of Bugs** | **13** | `FR-01`: 2 bugs; `FR-07`: 6 bugs; `FR-12`: 5 bugs (chi tiết kèm screenshots trong [`Bug_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_Report.md)). |
+| **Number of Bugs** | **13** | `FR-01`: 2 bugs; `FR-07`: 6 bugs; `FR-12`: 5 bugs — Đã tạo 13 Issues kèm screenshots tại `https://github.com/vdt12a11/HW04/issues` và lưu trong [`Bug_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_Report.md). |
+| **Public GitHub Repository** | `https://github.com/vdt12a11/HW04` | Chứa toàn bộ scripts, data JSON, HTML reports và lịch sử $\ge 8$ commits chạm vào `.spec.ts`. |
+| **GitHub Issues (13 Bugs)** | `https://github.com/vdt12a11/HW04/issues` | Danh sách 13 Issues (`#1` $\rightarrow$ `#13`) có đính kèm ảnh chụp màn hình thực tế. |
 | **Demo Video Link (Task 2)** | *(Cập nhật link YouTube Unlisted tại đây trước khi nén `.zip`)* | Video $\ge 5$ phút thuyết minh tiếng Việt, chạy multi-browser + HTML Report `Run by: 23120397`. |
 | **Agent Skill Demo Video Link (Mục 7)** | *(Cập nhật link YouTube tại đây trước khi nén `.zip`)* | Video minh họa sử dụng Agent Skill tự động hóa end-to-end. |
 

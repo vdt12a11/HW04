@@ -4,27 +4,29 @@
 - **MSSV:** `23120397`
 - **Hệ thống kiểm thử (SUT):** EShop Web (`http://localhost:5173`), Web Admin (`http://localhost:5174`), Backend API (`http://localhost:3000`)
 - **Công cụ phát hiện:** Playwright 1.64.1 (`Chromium`, `Firefox`, `WebKit`)
+- **GitHub Repository:** `https://github.com/vdt12a11/HW04`
+- **GitHub Issues Page:** `https://github.com/vdt12a11/HW04/issues` (Issues `#1` $\rightarrow$ `#13`)
 - **Tổng số lỗi phát hiện qua bộ kịch bản tự động:** **13 Bugs** (`FR-01`: 2 bugs, `FR-07`: 6 bugs, `FR-12`: 5 bugs)
 
 ---
 
 ## 1. Bảng Tổng Hợp Danh Sách Lỗi (Bug Summary Table)
 
-| Mã Bug | Tính năng | Test Case Phát Hiện | Tiêu đề Lỗi (Summary) | Mức độ (Severity) | Trình duyệt Bị Ảnh Hưởng |
-| :---: | :---: | :---: | :--- | :---: | :---: |
-| **BUG_FR01_01** | `FR-01` | `TC_DT_01`, `TC_BVA_02`, `TC_BVA_03` | Biểu thức chính quy kiểm tra mật khẩu trong `Register.jsx` dùng `\s` thay vì ký tự đặc biệt khiến mọi mật khẩu mạnh hợp lệ bị từ chối | **Critical** | Chromium, Firefox, WebKit |
-| **BUG_FR01_02** | `FR-01` | `TC_DT_15` | Form Đăng ký (`/register`) thiếu hoàn toàn trường "Xác nhận mật khẩu" theo đặc tả `FR-01` | **Major** | Chromium, Firefox, WebKit |
-| **BUG_FR07_01** | `FR-07` | `TC_CART_DT_02` | Thêm cùng một sản phẩm đã có trong giỏ hàng tạo dòng mới thay vì cộng dồn số lượng trên dòng hiện có | **Major** | Chromium, Firefox, WebKit |
-| **BUG_FR07_02** | `FR-07` | `TC_CART_DT_03`, `TC_CART_DT_05`, `TC_CART_BVA_01` | Bảng giỏ hàng (`/cart`) thiếu hai nút `+` và `-` để điều chỉnh tăng/giảm số lượng sản phẩm | **Major** | Chromium, Firefox, WebKit |
-| **BUG_FR07_03** | `FR-07` | `TC_CART_DT_06` | Bấm nút "Xóa" trong giỏ hàng xóa thẳng sản phẩm mà không hiển thị Hộp thoại xác nhận (Confirmation Dialog) | **Major** | Chromium, Firefox, WebKit |
-| **BUG_FR07_04** | `FR-07` | `TC_CART_DT_09` | Giao diện Giỏ hàng trống (Empty State) thiếu hình minh họa (`<img>` / `<svg>`) theo đặc tả `FR-07` | **Minor** | Chromium, Firefox, WebKit |
-| **BUG_FR07_05** | `FR-07` | `TC_CART_DT_11` | Nhãn tổng tiền giỏ hàng hiển thị sai thành `"Tổng tạm tính:"` thay vì `"Tổng cộng:"` | **Minor** | Chromium, Firefox, WebKit |
-| **BUG_FR07_06** | `FR-07` | `TC_CART_DT_12` | Tiêu đề cột thứ 2 ghi `"Giá"` thay vì `"Đơn giá"` và nút quay về ghi `"← Mua tiếp"` thay vì `"Tiếp tục mua sắm"` | **Minor** | Chromium, Firefox, WebKit |
-| **BUG_FR12_01** | `FR-12` | `TC_AC_DT_09` | Lỗ hổng phân quyền (`SEC-03`): Người dùng thường (`role='user'`) gọi được `GET /api/admin/users` (`200 OK`) và xem được Dashboard Admin | **Critical** | Chromium, Firefox, WebKit |
-| **BUG_FR12_02** | `FR-12` | `TC_AC_DT_10` | Lỗ hổng phân quyền (`SEC-03`): Người dùng thường (`role='user'`) không bị chặn `403 Forbidden` khi gọi `PUT /api/admin/orders/:id/status` | **Critical** | Chromium, Firefox, WebKit |
-| **BUG_FR12_03** | `FR-12` | `TC_AC_DT_11` | Lỗ hổng xác thực & phân quyền (`SEC-02`/`SEC-03`): `POST /api/products` không có middleware bảo vệ, cho phép tạo sản phẩm trái phép (`200 OK`) | **Critical** | Chromium, Firefox, WebKit |
-| **BUG_FR12_04** | `FR-12` | `TC_AC_DT_13` | Lỗ hổng kiểm tra JWT (`SEC-03`): Token hợp lệ nhưng thiếu trường `role` trong payload vẫn truy cập được `GET /api/admin/orders` (`200 OK`) | **Major** | Chromium, Firefox, WebKit |
-| **BUG_FR12_05** | `FR-12` | `TC_AC_DT_14` | Lỗ hổng phân quyền (`SEC-03`): Token mang vai trò không xác định (`role='guest'`) vẫn truy cập được `GET /api/admin/users` (`200 OK`) | **Major** | Chromium, Firefox, WebKit |
+| Mã Bug | GitHub Issue | Tính năng | Test Case Phát Hiện | Tiêu đề Lỗi (Summary) | Mức độ (Severity) |
+| :---: | :---: | :---: | :---: | :--- | :---: |
+| **BUG_FR01_01** | [Issue #1](https://github.com/vdt12a11/HW04/issues/1) | `FR-01` | `TC_DT_01`, `TC_BVA_02`, `TC_BVA_03` | Biểu thức chính quy kiểm tra mật khẩu trong `Register.jsx` dùng `\s` thay vì ký tự đặc biệt khiến mọi mật khẩu mạnh hợp lệ bị từ chối | **Critical** |
+| **BUG_FR01_02** | [Issue #2](https://github.com/vdt12a11/HW04/issues/2) | `FR-01` | `TC_DT_15` | Form Đăng ký (`/register`) thiếu hoàn toàn trường "Xác nhận mật khẩu" theo đặc tả `FR-01` | **Major** |
+| **BUG_FR07_01** | [Issue #3](https://github.com/vdt12a11/HW04/issues/3) | `FR-07` | `TC_CART_DT_02` | Thêm cùng một sản phẩm đã có trong giỏ hàng tạo dòng mới thay vì cộng dồn số lượng trên dòng hiện có | **Major** |
+| **BUG_FR07_02** | [Issue #4](https://github.com/vdt12a11/HW04/issues/4) | `FR-07` | `TC_CART_DT_03`, `TC_CART_DT_05`, `TC_CART_BVA_01` | Bảng giỏ hàng (`/cart`) thiếu hai nút `+` và `-` để điều chỉnh tăng/giảm số lượng sản phẩm | **Major** |
+| **BUG_FR07_03** | [Issue #5](https://github.com/vdt12a11/HW04/issues/5) | `FR-07` | `TC_CART_DT_06` | Bấm nút "Xóa" trong giỏ hàng xóa thẳng sản phẩm mà không hiển thị Hộp thoại xác nhận (Confirmation Dialog) | **Major** |
+| **BUG_FR07_04** | [Issue #6](https://github.com/vdt12a11/HW04/issues/6) | `FR-07` | `TC_CART_DT_09` | Giao diện Giỏ hàng trống (Empty State) thiếu hình minh họa (`<img>` / `<svg>`) theo đặc tả `FR-07` | **Minor** |
+| **BUG_FR07_05** | [Issue #7](https://github.com/vdt12a11/HW04/issues/7) | `FR-07` | `TC_CART_DT_11` | Nhãn tổng tiền giỏ hàng hiển thị sai thành `"Tổng tạm tính:"` thay vì `"Tổng cộng:"` | **Minor** |
+| **BUG_FR07_06** | [Issue #8](https://github.com/vdt12a11/HW04/issues/8) | `FR-07` | `TC_CART_DT_12` | Tiêu đề cột thứ 2 ghi `"Giá"` thay vì `"Đơn giá"` và nút quay về ghi `"← Mua tiếp"` thay vì `"Tiếp tục mua sắm"` | **Minor** |
+| **BUG_FR12_01** | [Issue #9](https://github.com/vdt12a11/HW04/issues/9) | `FR-12` | `TC_AC_DT_09` | Lỗ hổng phân quyền (`SEC-03`): Người dùng thường (`role='user'`) gọi được `GET /api/admin/users` (`200 OK`) và xem được Dashboard Admin | **Critical** |
+| **BUG_FR12_02** | [Issue #10](https://github.com/vdt12a11/HW04/issues/10) | `FR-12` | `TC_AC_DT_10` | Lỗ hổng phân quyền (`SEC-03`): Người dùng thường (`role='user'`) không bị chặn `403 Forbidden` khi gọi `PUT /api/admin/orders/:id/status` | **Critical** |
+| **BUG_FR12_03** | [Issue #11](https://github.com/vdt12a11/HW04/issues/11) | `FR-12` | `TC_AC_DT_11` | Lỗ hổng xác thực & phân quyền (`SEC-02`/`SEC-03`): `POST /api/products` không có middleware bảo vệ, cho phép tạo sản phẩm trái phép (`200 OK`) | **Critical** |
+| **BUG_FR12_04** | [Issue #12](https://github.com/vdt12a11/HW04/issues/12) | `FR-12` | `TC_AC_DT_13` | Lỗ hổng kiểm tra JWT (`SEC-03`): Token hợp lệ nhưng thiếu trường `role` trong payload vẫn truy cập được `GET /api/admin/orders` (`200 OK`) | **Major** |
+| **BUG_FR12_05** | [Issue #13](https://github.com/vdt12a11/HW04/issues/13) | `FR-12` | `TC_AC_DT_14` | Lỗ hổng phân quyền (`SEC-03`): Token mang vai trò không xác định (`role='guest'`) vẫn truy cập được `GET /api/admin/users` (`200 OK`) | **Major** |
 
 ---
 

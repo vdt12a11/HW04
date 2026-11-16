@@ -1,0 +1,14 @@
+https://github.com/vdt12a11/HW04/issues
+Issue #1: https://github.com/vdt12a11/HW04/issues/1 - [BUG_FR01_01] [FR-01 Register] Biểu thức chính quy kiểm tra mật khẩu dùng \s thay vì ký tự đặc biệt làm từ chối mọi mật khẩu hợp lệ
+Issue #2: https://github.com/vdt12a11/HW04/issues/2 - [BUG_FR01_02] [FR-01 Register] Giao diện Đăng ký (/register) thiếu hoàn toàn trường "Xác nhận mật khẩu"
+Issue #3: https://github.com/vdt12a11/HW04/issues/3 - [BUG_FR07_01] [FR-07 Shopping Cart] Thêm cùng một sản phẩm đã có trong giỏ tạo dòng mới thay vì cộng dồn số lượng
+Issue #4: https://github.com/vdt12a11/HW04/issues/4 - [BUG_FR07_02] [FR-07 Shopping Cart] Cột Số lượng trong bảng giỏ hàng thiếu hai nút [+] và [-] để tăng/giảm số lượng
+Issue #5: https://github.com/vdt12a11/HW04/issues/5 - [BUG_FR07_03] [FR-07 Shopping Cart] Bấm nút "Xóa" xóa thẳng sản phẩm khỏi giỏ mà không hiện Hộp thoại xác nhận (Confirmation Dialog)
+Issue #6: https://github.com/vdt12a11/HW04/issues/6 - [BUG_FR07_04] [FR-07 Shopping Cart] Giao diện Giỏ hàng trống (Empty State) thiếu hình minh họa
+Issue #7: https://github.com/vdt12a11/HW04/issues/7 - [BUG_FR07_05] [FR-07 Shopping Cart] Nhãn tổng tiền hiển thị sai thành "Tổng tạm tính:" thay vì "Tổng cộng:"
+Issue #8: https://github.com/vdt12a11/HW04/issues/8 - [BUG_FR07_06] [FR-07 Shopping Cart] Tiêu đề cột thứ 2 ghi "Giá" (thay vì "Đơn giá") và nút quay về ghi "← Mua tiếp" (thay vì "Tiếp tục mua sắm")
+Issue #9: https://github.com/vdt12a11/HW04/issues/9 - [BUG_FR12_01] [FR-12 Access Control] Lỗ hổng SEC-03: Người dùng thường (role="user") gọi được GET /api/admin/users (200 OK) và mở được Web Admin
+Issue #10: https://github.com/vdt12a11/HW04/issues/10 - [BUG_FR12_02] [FR-12 Access Control] Lỗ hổng SEC-03: Người dùng thường (role="user") không bị chặn 403 khi gọi PUT /api/admin/orders/:id/status
+Issue #11: https://github.com/vdt12a11/HW04/issues/11 - [BUG_FR12_03] [FR-12 Access Control] Lỗ hổng SEC-02/SEC-03: Endpoint POST /api/products thiếu middleware bảo vệ, cho phép tạo sản phẩm trái phép
+Issue #12: https://github.com/vdt12a11/HW04/issues/12 - [BUG_FR12_04] [FR-12 Access Control] Lỗ hổng SEC-03: Token JWT hợp lệ nhưng thiếu trường "role" trong payload vẫn truy cập được GET /api/admin/orders
+Issue #13: https://github.com/vdt12a11/HW04/issues/13 - [BUG_FR12_05] [FR-12 Access Control] Lỗ hổng SEC-03: Token JWT mang vai trò không hợp lệ (role="guest") vẫn truy cập được GET /api/admin/users

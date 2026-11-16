@@ -275,3 +275,26 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Chờ sinh viên rà soát hoặc yêu cầu làm tiếp phần Agent Skill (Mục 7) và xuất `git_commit_log.txt`.
+
+---
+
+## Prompt #13 — Đẩy mã nguồn và tự động tạo 13 GitHub Issues kèm Screenshots lên `https://github.com/vdt12a11/HW04` (2026-11-17 00:33)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > https://github.com/vdt12a11/HW04
+  > push lên github các isue bug bạn tìm đc
+- **Goal & Plan:**
+  - Liên kết remote repository `https://github.com/vdt12a11/HW04.git` và đẩy toàn bộ nhánh `main` (gồm test scripts, JSON datasets, HTML reports và 13 ảnh chụp màn hình trong `screenshots/`) lên GitHub.
+  - Gọi GitHub REST API (`POST /repos/vdt12a11/HW04/issues`) để tự động tạo đủ **13 GitHub Issues** (`#1` $\rightarrow$ `#13`) cho 13 lỗi thật phát hiện ở `FR-01` (2 lỗi), `FR-07` (6 lỗi) và `FR-12` (5 lỗi), mỗi Issue đính kèm trực tiếp ảnh chụp màn hình từ nhánh `main` (`https://raw.githubusercontent.com/vdt12a11/HW04/main/screenshots/...`).
+  - Lưu danh sách toàn bộ liên kết GitHub Issues vào [`Bug_report_link_git_hub.txt`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_report_link_git_hub.txt) và cập nhật đường dẫn Issues vào [`Bug_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_Report.md) cùng [`README.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/README.md).
+- **Actions Taken:**
+  - Chạy `git remote add origin https://github.com/vdt12a11/HW04.git; git branch -M main; git push -u origin main`.
+  - Chạy script tạo 13 GitHub Issues (`Issue #1` $\rightarrow$ `Issue #13`) trên `https://github.com/vdt12a11/HW04/issues`.
+  - Tạo file [`Bug_report_link_git_hub.txt`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_report_link_git_hub.txt) và cập nhật [`Bug_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_Report.md), [`README.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/README.md).
+  - Ghi nối tiếp (append) Prompt #13 vào [`Prompt_log.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md).
+- **AI Output:**
+  - Đã push toàn bộ dự án lên `https://github.com/vdt12a11/HW04` và tạo thành công 13 Issues (`https://github.com/vdt12a11/HW04/issues/1` $\rightarrow$ `/13`) kèm ảnh chụp màn hình hiển thị trực tiếp.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.2 (Apply) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Chờ sinh viên yêu cầu tiếp tục làm Agent Skill (Mục 7) và xuất `git_commit_log.txt`.
