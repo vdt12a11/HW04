@@ -90,3 +90,26 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Chuyển sang Bước 2 — Thiết kế file dữ liệu JSON và sinh kịch bản kiểm thử tự động cho **Feature A (`FR-01: Account Registration`)**.
+
+---
+
+## Prompt #5 — Kiểm tra và bổ sung cấu hình Review Kết Quả trong AGENTS.md (2026-11-16 22:45)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > File agents.md có cấu hình review kết quả ko
+- **Goal & Plan:**
+  - Rà soát [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md) để kiểm tra mức độ chi tiết của quy định Review kết quả.
+  - Bổ sung **Mục 4: Cấu hình Quy trình Review Kết Quả (Human Code Review & Execution Triage)** vào [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md), bao gồm:
+    1. Checklist 5 tiêu chí review code/script do AI sinh (Fragile Selectors, Weak/Missing Assertions, Flaky Waits, Missing Edge Cases, Data-Driven Isolation).
+    2. Quy tắc phân loại kết quả chạy thực tế (Execution Result Triage): phân biệt rõ **Lỗi do Script của AI (Script Defect)** $\rightarrow$ phải sửa `.spec.ts` vs. **Lỗi thật của hệ thống EShop (Genuine SUT Defect)** $\rightarrow$ giữ nguyên assertion đúng đặc tả và lập Bug Report + chụp screenshot.
+    3. Cấu trúc bảng **Gap Analysis** bắt buộc trong `Main_report.md` (Before vs. After + giải thích *Why AI missed it*).
+- **Actions Taken:**
+  - Đọc nội dung [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md).
+  - Cập nhật bổ sung Mục 4 vào [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md).
+  - Ghi nối tiếp (append) Prompt #5 vào [`Prompt_log.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md).
+- **AI Output:**
+  - Hoàn thiện Mục 4 trong [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md) quy định rõ cơ chế review kịch bản AI sinh và phân loại kết quả thực thi (Script Defect vs. Genuine SUT Defect).
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Tiến hành Bước 2 — Thiết kế dữ liệu JSON và kịch bản tự động hóa cho **Feature A (`FR-01: Account Registration`)** theo đúng quy trình Review vừa cấu hình.

@@ -75,3 +75,31 @@ Theo mục **12 (Git Commit Log)** của đề bài HW04:
    - Phản biện cá nhân 200–300 từ trả lời đủ 3 câu hỏi: (1) AI đã sai, thiên lệch hoặc thiếu sót ở đâu? (2) Tại sao AI không tự phát hiện được vấn đề đó? (3) Nguyên tắc hợp tác với AI nào đã được rút ra qua bài tập này?
 6. **Bảo toàn dữ liệu Log:**
    - Không được overwrite các bản ghi trong [`Prompt_log.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md) và [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md) trước đó; luôn ghi nối tiếp (append) để lưu giữ toàn bộ tiến trình.
+
+---
+
+## 🔍 4. CẤU HÌNH QUY TRÌNH REVIEW KẾT QUẢ (HUMAN CODE REVIEW & EXECUTION TRIAGE)
+
+Sau mỗi lần AI sinh kịch bản hoặc sau mỗi lần chạy thực nghiệm Playwright trên SUT EShop, Agent **BẮT BUỘC** phải thực hiện quy trình Review Kết Quả gồm 3 bước dưới đây:
+
+### 4.1. Checklist 5 Tiêu chí Review Kịch bản AI sinh (Human Code Review)
+Mọi file `.spec.ts` và `.json`/`.csv` do AI tạo ra phải được rà soát theo 5 tiêu chí kỹ thuật của đề bài:
+1. **Fragile Selectors (Bộ chọn dễ gãy):** Phát hiện nơi AI dùng CSS class phụ thuộc giao diện (`.btn-primary`, `div > span:nth-child(2)`), XPath tuyệt đối, hoặc đoán mò placeholder/label không khớp DOM thực tế của EShop $\rightarrow$ Thay bằng Role/Label/TestId hoặc bộ chọn ngữ nghĩa bền vững.
+2. **Weak or Missing Assertions (Khẳng định yếu hoặc thiếu):** Kiểm tra xem script đã có đủ **$\ge 3$ assertion patterns khác nhau** chưa (ví dụ: Pattern 1 – URL/Navigation/HTTP Status; Pattern 2 – UI Visibility/Text/Toast/Dialog; Pattern 3 – DOM State/Input Validity/Table Count/LocalStorage) và có kiểm tra trạng thái hệ thống sau thao tác hay chưa.
+3. **Flaky Waits / Race Conditions (Đợi không ổn định):** Loại bỏ mọi lệnh `page.waitForTimeout()` (hard sleep) hoặc kiểm tra thiếu auto-wait khi gọi API bất đồng bộ / xử lý native `window.confirm` dialog $\rightarrow$ Thay bằng Web-First Assertions (`await expect(...).toBeVisible()`) hoặc lắng nghe sự kiện (`page.once('dialog', ...)`).
+4. **Missing Edge / Boundary Cases (Thiếu trường hợp biên/đặc biệt):** Đối chiếu với bộ test cases của HW02 để đảm bảo không bỏ sót các ca biên quan trọng (ví dụ: mật khẩu 7/8/9 ký tự, số lượng giỏ hàng giảm tại biên $Q=1$, JWT hết hạn tại $T-1, T, T+1$).
+5. **Data-Driven Isolation (Cô lập dữ liệu kiểm thử):** Đảm bảo 100% test data được nạp từ file `.json`/`.csv` bên ngoài và xử lý sạch dữ liệu động (ví dụ: sinh email duy nhất theo timestamp/browser cho các ca đăng ký hợp lệ để chạy trên cả 3 trình duyệt `chromium`, `firefox`, `webkit` không bị đụng lỗi trùng email ở lượt chạy thứ 2–3).
+
+### 4.2. Quy tắc Phân loại Kết quả Chạy Thực tế (Execution Result Triage: Script Defect vs. SUT Bug)
+Khi chạy Playwright và có test case **FAILED**, Agent phải phân tích nguyên nhân gốc rễ (Root Cause Analysis) và phân loại chính xác vào 1 trong 2 nhóm:
+- **Nhóm A — Lỗi do Kịch bản của AI (Script Defect / False Negative):**
+  - *Dấu hiệu:* Ứng dụng EShop hoạt động đúng đặc tả, nhưng test fail do AI đoán sai selector, chưa xử lý HTML5 native validation (`validationMessage`), đụng độ dữ liệu giữa các trình duyệt, hoặc bắt sai sự kiện dialog.
+  - *Hành động bắt buộc:* **Sửa lại file `.spec.ts`** (tạo commit `fix(...)` mới để tính vào mốc $\ge 8$ commits), đồng thời ghi nhận vào cột `(5) Bản SV sửa` trong [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md).
+- **Nhóm B — Lỗi thật của Hệ thống EShop (Genuine SUT Defect / True Positive):**
+  - *Dấu hiệu:* Kịch bản `.spec.ts` kiểm tra đúng 100% theo đặc tả yêu cầu (`eshop-sut/README.md`), nhưng hệ thống EShop trả về kết quả sai nghiệp vụ (ví dụ: cho phép đăng ký họ tên chỉ có khoảng trắng, xóa sản phẩm không hiện hộp thoại xác nhận, nhãn hiển thị "Tổng tạm tính" thay vì "Tổng cộng", người dùng thường gọi được API Admin...).
+  - *Hành động bắt buộc:* **TUYỆT ĐỐI KHÔNG sửa assertion theo hành vi sai của SUT để ép test PASS!** Giữ nguyên assertion đúng theo đặc tả để báo cáo HTML phản ánh trung thực số ca `Failed` do lỗi hệ thống, tự động chụp ảnh màn hình (screenshot) và lập **Bug Report** (ghi vào `Main_report.md` / `Bug_Report.md` và tạo GitHub Issues).
+
+### 4.3. Bảng tổng hợp Gap Analysis trong Báo cáo chính (`Main_report.md`)
+Sau khi hoàn tất review cho mỗi tính năng (Feature A, B, C), Agent phải lập bảng **Review & Gap Analysis** trong `Main_report.md` gồm các cột:
+- `Mã lỗi Review (Gap ID)` | `Phân loại (Fragile Selector / Weak Assertion / Flaky Wait / Test Isolation)` | `Code AI sinh ban đầu (Before)` | `Vấn đề & Nguyên nhân tại sao AI mắc lỗi (Why AI missed it)` | `Bản đã sửa sau Human Review (After)`
+
