@@ -1,0 +1,194 @@
+[
+  {
+    "tcId": "TC_DT_01",
+    "title": "EC01, EC04, EC10, EC17, EC19 - Happy Path: Đăng ký thành công với tất cả dữ liệu hợp lệ",
+    "category": "positive",
+    "input": {
+      "name": "Nguyen Van A",
+      "email": "newuser_dt01_{UNIQUE}@eshop.com",
+      "password": "Aa1@$!%*?&",
+      "confirmPassword": "Aa1@$!%*?&"
+    },
+    "expected": {
+      "outcome": "success",
+      "redirectUrl": "/login",
+      "shouldStayOnRegister": false
+    }
+  },
+  {
+    "tcId": "TC_DT_02",
+    "title": "EC02, EC20 - Kiểm tra Họ Tên để rỗng (Empty Name)",
+    "category": "negative",
+    "input": {
+      "name": "",
+      "email": "user_dt02@eshop.com",
+      "password": "Eshop@2026",
+      "confirmPassword": "Eshop@2026"
+    },
+    "expected": {
+      "outcome": "html5_invalid",
+      "invalidField": "name",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_DT_04",
+    "title": "EC05, EC20 - Kiểm tra Email để rỗng (Empty Email)",
+    "category": "negative",
+    "input": {
+      "name": "Tran Thi B",
+      "email": "",
+      "password": "Eshop@2026",
+      "confirmPassword": "Eshop@2026"
+    },
+    "expected": {
+      "outcome": "html5_invalid",
+      "invalidField": "email",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_DT_09",
+    "title": "EC11, EC20 - Kiểm tra Mật khẩu có độ dài < 8 ký tự (5 ký tự)",
+    "category": "negative",
+    "input": {
+      "name": "Le Van C",
+      "email": "user_dt09@eshop.com",
+      "password": "Esh@1",
+      "confirmPassword": "Esh@1"
+    },
+    "expected": {
+      "outcome": "error_banner",
+      "errorSubstring": "Mật khẩu quá yếu",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_DT_10",
+    "title": "EC12, EC20 - Kiểm tra Mật khẩu thiếu chữ cái in hoa",
+    "category": "negative",
+    "input": {
+      "name": "Le Van C",
+      "email": "user_dt10@eshop.com",
+      "password": "eshop@2026",
+      "confirmPassword": "eshop@2026"
+    },
+    "expected": {
+      "outcome": "error_banner",
+      "errorSubstring": "Mật khẩu quá yếu",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_DT_11",
+    "title": "EC13, EC20 - Kiểm tra Mật khẩu thiếu chữ cái thường",
+    "category": "negative",
+    "input": {
+      "name": "Le Van C",
+      "email": "user_dt11@eshop.com",
+      "password": "ESHOP@2026",
+      "confirmPassword": "ESHOP@2026"
+    },
+    "expected": {
+      "outcome": "error_banner",
+      "errorSubstring": "Mật khẩu quá yếu",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_DT_12",
+    "title": "EC14, EC20 - Kiểm tra Mật khẩu thiếu chữ số",
+    "category": "negative",
+    "input": {
+      "name": "Le Van C",
+      "email": "user_dt12@eshop.com",
+      "password": "Eshop@admin",
+      "confirmPassword": "Eshop@admin"
+    },
+    "expected": {
+      "outcome": "error_banner",
+      "errorSubstring": "Mật khẩu quá yếu",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_DT_13",
+    "title": "EC15, EC20 - Kiểm tra Mật khẩu thiếu ký tự đặc biệt",
+    "category": "negative",
+    "input": {
+      "name": "Le Van C",
+      "email": "user_dt13@eshop.com",
+      "password": "Eshop2026a",
+      "confirmPassword": "Eshop2026a"
+    },
+    "expected": {
+      "outcome": "error_banner",
+      "errorSubstring": "Mật khẩu quá yếu",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_DT_15",
+    "title": "EC18, EC20 - Kiểm tra Xác nhận mật khẩu không trùng khớp",
+    "category": "negative",
+    "input": {
+      "name": "Pham Van D",
+      "email": "user_dt15@eshop.com",
+      "password": "Eshop@2026",
+      "confirmPassword": "Eshop@2027"
+    },
+    "expected": {
+      "outcome": "confirm_mismatch",
+      "errorSubstring": "Xác nhận mật khẩu",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_BVA_01",
+    "title": "BVA: Password Length = LB - 1 (7 ký tự, cận dưới không hợp lệ)",
+    "category": "boundary",
+    "input": {
+      "name": "Nguyen Van A",
+      "email": "bva_01@eshop.com",
+      "password": "Esh@123",
+      "confirmPassword": "Esh@123"
+    },
+    "expected": {
+      "outcome": "error_banner",
+      "errorSubstring": "Mật khẩu quá yếu",
+      "shouldStayOnRegister": true
+    }
+  },
+  {
+    "tcId": "TC_BVA_02",
+    "title": "BVA: Password Length = LB (8 ký tự, cận dưới hợp lệ chính xác)",
+    "category": "boundary",
+    "input": {
+      "name": "Nguyen Van A",
+      "email": "bva_02_{UNIQUE}@eshop.com",
+      "password": "Esho@123",
+      "confirmPassword": "Esho@123"
+    },
+    "expected": {
+      "outcome": "success",
+      "redirectUrl": "/login",
+      "shouldStayOnRegister": false
+    }
+  },
+  {
+    "tcId": "TC_BVA_03",
+    "title": "BVA: Password Length = LB + 1 (9 ký tự, kế cận trên hợp lệ)",
+    "category": "boundary",
+    "input": {
+      "name": "Nguyen Van A",
+      "email": "bva_03_{UNIQUE}@eshop.com",
+      "password": "Eshop@123",
+      "confirmPassword": "Eshop@123"
+    },
+    "expected": {
+      "outcome": "success",
+      "redirectUrl": "/login",
+      "shouldStayOnRegister": false
+    }
+  }
+]
