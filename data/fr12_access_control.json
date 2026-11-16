@@ -1,0 +1,218 @@
+[
+  {
+    "tcId": "TC_AC_DT_01",
+    "title": "EC_TOK01, EC_ROL01, EC_RES01 - Admin hợp lệ (role='admin') gọi API GET /api/admin/users",
+    "category": "positive",
+    "mode": "api_and_ui",
+    "tokenType": "valid_admin",
+    "request": {
+      "method": "GET",
+      "endpoint": "/api/admin/users"
+    },
+    "expected": {
+      "statusCodes": [200],
+      "shouldAllowAdminUI": true
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_03",
+    "title": "EC_TOK01, EC_ROL01, EC_RES03 - Đăng nhập cổng Web Admin (localhost:5174) bằng tài khoản Admin",
+    "category": "positive",
+    "mode": "ui_login",
+    "credentials": {
+      "email": "admin@eshop.com",
+      "password": "Admin123!"
+    },
+    "expected": {
+      "loginSuccess": true,
+      "tokenStored": true,
+      "dashboardHeading": "EShop Admin"
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_04",
+    "title": "EC_TOK02, EC_RES01 - Khách vãng lai gọi API GET /api/admin/orders không kèm Header Authorization",
+    "category": "negative",
+    "mode": "api_and_ui",
+    "tokenType": "none",
+    "request": {
+      "method": "GET",
+      "endpoint": "/api/admin/orders"
+    },
+    "expected": {
+      "statusCodes": [401],
+      "shouldAllowAdminUI": false
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_06",
+    "title": "EC_TOK04, EC_RES01 - Gửi Token rác / sai định dạng JWT đến POST /api/admin/import-products",
+    "category": "negative",
+    "mode": "api_and_ui",
+    "tokenType": "malformed",
+    "rawToken": "invalid_jwt_token_12345",
+    "request": {
+      "method": "POST",
+      "endpoint": "/api/admin/import-products",
+      "body": {
+        "products": [{ "name": "TestImport", "price": 10000 }]
+      }
+    },
+    "expected": {
+      "statusCodes": [401, 403],
+      "shouldAllowAdminUI": false
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_08",
+    "title": "EC_TOK06, EC_RES01 - Gửi Token bị giả mạo chữ ký (sai Secret Key) đến POST /api/admin/coupons",
+    "category": "negative",
+    "mode": "api_and_ui",
+    "tokenType": "wrong_secret",
+    "payload": {
+      "id": 1,
+      "role": "admin"
+    },
+    "request": {
+      "method": "POST",
+      "endpoint": "/api/admin/coupons",
+      "body": {
+        "code": "FAKE10",
+        "type": "percent",
+        "discount_value": 10,
+        "min_order_amount": 100000,
+        "expired_at": "2099-12-31"
+      }
+    },
+    "expected": {
+      "statusCodes": [401, 403],
+      "shouldAllowAdminUI": false
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_09",
+    "title": "EC_ROL02, EC_RES01 - Người dùng thường (role='user') gọi API GET /api/admin/users phải bị chặn 403",
+    "category": "negative",
+    "mode": "api_and_ui",
+    "tokenType": "valid_user",
+    "request": {
+      "method": "GET",
+      "endpoint": "/api/admin/users"
+    },
+    "expected": {
+      "statusCodes": [403],
+      "shouldAllowAdminUI": false,
+      "bugId": "BUG_FR12_01: Lỗ hổng SEC-03 - Người dùng thường (role='user') gọi được GET /api/admin/users (200 OK)"
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_10",
+    "title": "EC_ROL02, EC_RES01 - Người dùng thường (role='user') gọi PUT /api/admin/orders/1/status phải bị chặn 403",
+    "category": "negative",
+    "mode": "api_and_ui",
+    "tokenType": "valid_user",
+    "request": {
+      "method": "PUT",
+      "endpoint": "/api/admin/orders/99999/status",
+      "body": {
+        "status": "confirmed"
+      }
+    },
+    "expected": {
+      "statusCodes": [403],
+      "shouldAllowAdminUI": false,
+      "bugId": "BUG_FR12_02: Lỗ hổng SEC-03 - Người dùng thường (role='user') vượt qua middleware tại PUT /api/admin/orders/:id/status"
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_11",
+    "title": "EC_ROL02, EC_RES02 - Người dùng thường (role='user') gọi POST /api/products phải bị chặn 403",
+    "category": "negative",
+    "mode": "api_and_ui",
+    "tokenType": "valid_user",
+    "request": {
+      "method": "POST",
+      "endpoint": "/api/products",
+      "body": {
+        "name": "SP Hacker Unauthorized",
+        "price": 1000,
+        "category_id": 1
+      }
+    },
+    "expected": {
+      "statusCodes": [403],
+      "shouldAllowAdminUI": false,
+      "bugId": "BUG_FR12_03: Lỗ hổng SEC-02/SEC-03 - Endpoint POST /api/products thiếu kiểm soát truy cập, cho phép tạo sản phẩm trái phép (200 OK)"
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_13",
+    "title": "EC_ROL03, EC_RES01 - Token hợp lệ nhưng thiếu trường 'role' trong payload gọi GET /api/admin/orders",
+    "category": "edge",
+    "mode": "api_and_ui",
+    "tokenType": "custom_signed",
+    "payload": {
+      "id": 1
+    },
+    "request": {
+      "method": "GET",
+      "endpoint": "/api/admin/orders"
+    },
+    "expected": {
+      "statusCodes": [403],
+      "shouldAllowAdminUI": false,
+      "bugId": "BUG_FR12_04: Lỗ hổng SEC-03 - Token không chứa thuộc tính 'role' vẫn truy cập được GET /api/admin/orders (200 OK)"
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_14",
+    "title": "EC_ROL04, EC_RES01 - Token có role='guest' không xác định gọi GET /api/admin/users",
+    "category": "edge",
+    "mode": "api_and_ui",
+    "tokenType": "custom_signed",
+    "payload": {
+      "id": 1,
+      "role": "guest"
+    },
+    "request": {
+      "method": "GET",
+      "endpoint": "/api/admin/users"
+    },
+    "expected": {
+      "statusCodes": [403],
+      "shouldAllowAdminUI": false,
+      "bugId": "BUG_FR12_05: Lỗ hổng SEC-03 - Token mang role='guest' vẫn truy cập được GET /api/admin/users (200 OK)"
+    }
+  },
+  {
+    "tcId": "TC_AC_DT_15",
+    "title": "EC_ROL02, EC_RES03 - Đăng nhập cổng Web Admin (localhost:5174) bằng tài khoản thường (role='user')",
+    "category": "negative",
+    "mode": "ui_login",
+    "credentials": {
+      "email": "test@eshop.com",
+      "password": "Test1234!"
+    },
+    "expected": {
+      "loginSuccess": false,
+      "tokenStored": false,
+      "alertMessage": "Bạn không phải là admin!"
+    }
+  },
+  {
+    "tcId": "TC_AC_BVA_01",
+    "title": "BVA: JWT expiry ngay trước ngưỡng hết hạn (exp = T - 1s) gọi GET /api/admin/orders",
+    "category": "boundary",
+    "mode": "api_and_ui",
+    "tokenType": "expired_boundary",
+    "expOffsetSeconds": -1,
+    "request": {
+      "method": "GET",
+      "endpoint": "/api/admin/orders"
+    },
+    "expected": {
+      "statusCodes": [401, 403],
+      "shouldAllowAdminUI": false
+    }
+  }
+]
