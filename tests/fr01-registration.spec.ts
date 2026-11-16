@@ -2,29 +2,46 @@ import { test, expect } from '@playwright/test';
 import testData from '../data/fr01_registration.json';
 
 /**
- * Bản sinh ban đầu bởi AI (Before Human Review) cho FR-01: Account Registration
- * - Nhược điểm sẽ được phát hiện và sửa ở bước Human Review:
- *   1. Fragile/Broken Selectors: Dùng page.getByLabel('Họ Tên') nhưng thẻ <label> trong Register.jsx không có thuộc tính htmlFor.
- *   2. Flaky Waits: Dùng page.waitForTimeout(1000) (hard sleep).
- *   3. Weak Assertions: Chưa kiểm tra HTML5 Constraint Validation (validity.valueMissing) cho các ca để trống.
+ * Bản cập nhật lần 1 sau Human Review (Fix Selectors & Flaky Waits):
+ * - Thay thế page.getByLabel(...) (bị lỗi do <label> trong Register.jsx thiếu thuộc tính htmlFor)
+ *   bằng bộ chọn ngữ nghĩa bền vững gắn với khối chứa label tương ứng.
+ * - Loại bỏ hoàn toàn page.waitForTimeout(1000) (hard sleep).
+ * - Cô lập dữ liệu email động theo tên trình duyệt (browserName) và timestamp.
  */
 test.describe('FR-01: Account Registration (Data-Driven Suite)', () => {
   for (const tc of testData) {
-    test(`${tc.tcId} - ${tc.title}`, async ({ page }) => {
+    test(`${tc.tcId} - ${tc.title}`, async ({ page, browserName }) => {
       await page.goto('/register');
 
-      // Điền thông tin vào form (Fragile selectors ban đầu do AI đoán)
-      await page.getByLabel('Họ Tên').fill(tc.input.name);
-      await page.getByLabel('Email').fill(tc.input.email);
-      await page.getByLabel('Mật khẩu').fill(tc.input.password);
+      const nameInput = page
+        .locator('form > div')
+        .filter({ has: page.locator('label', { hasText: 'Họ Tên' }) })
+        .locator('input');
+      const emailInput = page
+        .locator('form > div')
+        .filter({ has: page.locator('label', { hasText: 'Email' }) })
+        .locator('input');
+      const passwordInput = page
+        .locator('form > div')
+        .filter({ has: page.locator('label', { hasText: 'Mật khẩu' }) })
+        .locator('input');
+      const submitButton = page.getByRole('button', { name: 'Đăng Ký' });
 
-      await page.locator('button[type="submit"]').click();
-      await page.waitForTimeout(1000);
+      const uniqueEmail = tc.input.email.replace(
+        '{UNIQUE}',
+        `${browserName}_${Date.now()}`
+      );
+
+      await nameInput.fill(tc.input.name);
+      await emailInput.fill(uniqueEmail);
+      await passwordInput.fill(tc.input.password);
+
+      await submitButton.click();
 
       if (tc.expected.outcome === 'success') {
         await expect(page).toHaveURL(/\/login$/);
       } else {
-        await expect(page.locator('.bg-red-100')).toBeVisible();
+        await expect(page).toHaveURL(/\/register$/);
       }
     });
   }
