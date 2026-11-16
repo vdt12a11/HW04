@@ -211,3 +211,24 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Chuyển sang Bước 5 & 6 — Chạy tổng hợp toàn bộ Suite (36 TCs $\times$ 3 browsers = 108 runs), xây dựng Agent Skill (Mục 7), và hoàn thiện toàn bộ hồ sơ báo cáo nộp bài.
+
+---
+
+## Prompt #10 — Bước 5: Chạy tổng hợp toàn bộ Suite trên 3 trình duyệt (9 Browser Runs / 108 Executions) & Xuất Combined HTML Report (2026-11-17 00:00)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > Hãy làm bước 5  (chưa làm bước 6)
+- **Goal & Plan:**
+  - Chỉ thực hiện **Bước 5** theo đúng yêu cầu của sinh viên (chưa làm Bước 6).
+  - Chạy lệnh `npx playwright test` cho toàn bộ 3 file kịch bản (`tests/fr01-registration.spec.ts`, `tests/fr07-shopping-cart.spec.ts`, `tests/fr12-access-control.spec.ts`) trên cả 3 trình duyệt (`chromium`, `firefox`, `webkit` $\rightarrow$ tổng cộng **9 browser runs / 108 test executions**).
+  - Xác minh báo cáo tổng hợp [`playwright-report/index.html`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/playwright-report/index.html) hiển thị đầy đủ cả 3 features trên 3 trình duyệt và có gắn định danh `Run by: 23120397` kèm ISO Timestamp trên `<title>`, Header, Footer và Metadata.
+  - Sao lưu thêm bản báo cáo tổng hợp vào `reports/full-suite-html-report/` bên cạnh 3 báo cáo từng tính năng (`reports/fr01-html-report/`, `reports/fr07-html-report/`, `reports/fr12-html-report/`) và kiểm tra đủ 13 ảnh chụp màn hình lỗi trong `screenshots/`.
+- **Actions Taken:**
+  - Ghi nối tiếp (append) Prompt #10 vào [`Prompt_log.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md).
+  - Thực thi `npx playwright test` (Full Suite — 108 tests).
+- **AI Output:**
+  - Đang thực thi toàn bộ 108 lượt kiểm thử trên 3 trình duyệt và xuất Combined HTML Report.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.2 (Apply) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Sau khi Bước 5 hoàn tất và commit báo cáo tổng hợp, chờ lệnh của sinh viên để bắt đầu Bước 6 (Xây dựng Agent Skill & Hoàn thiện bộ báo cáo).
