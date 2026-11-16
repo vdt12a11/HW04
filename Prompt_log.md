@@ -255,3 +255,23 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Xây dựng Agent Skill (Mục 7), xuất `git_commit_log.txt` và hỗ trợ sinh viên tạo GitHub Issues / xuất PDF khi cần.
+
+---
+
+## Prompt #12 — Tinh chỉnh (Humanize) văn phong bài viết AI_Critique.md (2026-11-17 00:23)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > Humanize lại AI_critique
+- **Goal & Plan:**
+  - Viết lại [`AI_Critique.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Critique.md) (và đồng bộ vào Mục 8 của [`Main_report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Main_report.md)) theo giọng văn tự nhiên, chân thực của sinh viên (tương tự văn phong ở `HW02/AI_Critique.md`), bỏ cách liệt kê máy móc *"Thứ nhất... Thứ hai... Thứ ba..."*.
+  - Đảm bảo trả lời đủ 3 câu hỏi của Mục 10 và giữ độ dài nghiêm ngặt trong khoảng **200–300 từ** (kiểm tra thực tế: **287 từ**).
+- **Actions Taken:**
+  - Cập nhật [`AI_Critique.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Critique.md) và kiểm tra số từ bằng PowerShell (`287` từ).
+  - Đồng bộ nội dung sang Mục 8 của [`Main_report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Main_report.md).
+  - Ghi nối tiếp (append) Prompt #12 vào [`Prompt_log.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md).
+- **AI Output:**
+  - Bản `AI_Critique.md` đã được viết lại tự nhiên, gần gũi với trải nghiệm thực tế của sinh viên và đạt chuẩn 287 từ.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Chờ sinh viên rà soát hoặc yêu cầu làm tiếp phần Agent Skill (Mục 7) và xuất `git_commit_log.txt`.
