@@ -2,29 +2,27 @@ import { test, expect } from '@playwright/test';
 import cartData from '../data/fr07_shopping_cart.json';
 
 /**
- * Bản sinh ban đầu bởi AI (Before Human Review) cho FR-07: Shopping Cart
- * - Các lỗi của AI sẽ được phát hiện và sửa ở bước Human Review:
- *   1. SPA State Loss: Dùng page.goto('/cart') sau khi thêm hàng làm reload toàn bộ React SPA, xóa sạch useState([]) trong CartContext.
- *   2. Fragile Selectors: Dùng CSS phụ thuộc vị trí div.grid > div:nth-child(...) button.
- *   3. Flaky Waits: Dùng page.waitForTimeout(1000).
+ * Bản cập nhật lần 1 sau Human Review cho FR-07: Shopping Cart
+ * - Khắc phục lỗi mất trạng thái React SPA (CartContext lưu trong useState):
+ *   Thay page.goto('/cart') bằng thao tác click vào Link 'Giỏ hàng' trên thanh điều hướng Header.
+ * - Thay thế fragile selector (div:nth-child) bằng getByRole('button', { name: 'Thêm vào giỏ' }).
+ * - Loại bỏ hoàn toàn lệnh chờ cứng page.waitForTimeout(1000).
  */
 test.describe('FR-07: Shopping Cart (Data-Driven Suite)', () => {
   for (const tc of cartData) {
     test(`${tc.tcId} - ${tc.title}`, async ({ page }) => {
       await page.goto('/');
-      await page.waitForTimeout(1000);
+
+      const addToCartButtons = page.getByRole('button', { name: 'Thêm vào giỏ' });
+      await expect(addToCartButtons.first()).toBeVisible();
 
       for (const idx of tc.setup.addProductsIndices) {
-        await page
-          .locator(`div.grid > div:nth-child(${idx + 1}) button`)
-          .click();
+        await addToCartButtons.nth(idx).click();
       }
 
-      // Lỗi AI: page.goto('/cart') làm mất toàn bộ state giỏ hàng trong bộ nhớ React!
-      await page.goto('/cart');
-      await page.waitForTimeout(1000);
-
-      await expect(page.locator('h2')).toBeVisible();
+      // Điều hướng SPA qua React Router Link để bảo toàn state trong CartContext
+      await page.locator('header nav').getByRole('link', { name: 'Giỏ hàng' }).click();
+      await expect(page).toHaveURL(/\/cart$/);
     });
   }
 });
