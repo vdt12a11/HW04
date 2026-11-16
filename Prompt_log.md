@@ -232,3 +232,26 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.2 (Apply) & G9.4 (Collaborate with AI).
   - **Next Steps:** Sau khi Bước 5 hoàn tất và commit báo cáo tổng hợp, chờ lệnh của sinh viên để bắt đầu Bước 6 (Xây dựng Agent Skill & Hoàn thiện bộ báo cáo).
+
+---
+
+## Prompt #11 — Biên soạn Main_report.md, Bug_Report.md, AI_Critique.md và README.md (2026-11-17 00:11)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > Hãy viết Main_report.md, Bug_Report.md, AI_Critique.md, README.md
+- **Goal & Plan:**
+  - Biên soạn đầy đủ 4 tài liệu báo cáo cốt lõi của HW04 theo đúng yêu cầu của đề bài và quy chuẩn trong [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md):
+    1. [`Bug_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_Report.md): Tổng hợp và mô tả chi tiết **13 lỗi thật của SUT** phát hiện qua chạy tự động (`BUG_FR01_01..02`, `BUG_FR07_01..06`, `BUG_FR12_01..05`), bao gồm Steps to Reproduce, Expected vs. Actual Result, Root Cause trong source code và đính kèm 13 ảnh chụp màn hình thực tế từ `screenshots/`.
+    2. [`AI_Critique.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Critique.md): Đoạn văn phản biện cá nhân đối với AI (đúng **276 từ**, nằm trong khoảng 200–300 từ bắt buộc của Mục 10), trả lời đủ 3 câu hỏi về sai sót/thiên lệch của AI, nguyên nhân AI không tự phát hiện, và nguyên tắc hợp tác rút ra.
+    3. [`Main_report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Main_report.md): Báo cáo chính trình bày lựa chọn 3 tính năng từ HW02, kiến trúc Playwright đa trình duyệt (`Run by: 23120397`), bảng 12 test cases data-driven, 3 assertion patterns và bảng **Review & Gap Analysis (`Before` vs `After` + *Why AI missed it*)** cho từng tính năng A, B, C, giải trình test cases tinh gọn, thống kê 108 lượt chạy và lịch sử 9 Git commits trên file `.spec.ts`.
+    4. [`README.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/README.md): Chứa bảng tự đánh giá (Self-Assessment Table — Mục 15) và báo cáo tổng hợp số liệu kiểm thử (Test Summary Report — Mục 14).
+  - Cập nhật `Artifact #8` (`Bug_Report.md`) vào [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md).
+- **Actions Taken:**
+  - Tạo [`Bug_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_Report.md), [`AI_Critique.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Critique.md) (kiểm tra số từ = 276 từ), [`Main_report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Main_report.md), và [`README.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/README.md).
+  - Cập nhật `Artifact #8` vào [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md) và ghi nhận Prompt #11 vào `Prompt_log.md`.
+- **AI Output:**
+  - Hoàn thiện 4 file báo cáo `Main_report.md`, `Bug_Report.md`, `AI_Critique.md`, `README.md`.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Xây dựng Agent Skill (Mục 7), xuất `git_commit_log.txt` và hỗ trợ sinh viên tạo GitHub Issues / xuất PDF khi cần.
