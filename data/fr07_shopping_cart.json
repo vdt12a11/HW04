@@ -1,0 +1,157 @@
+[
+  {
+    "tcId": "TC_CART_DT_01",
+    "title": "EC_P01, EC_UI04 - Thêm sản phẩm mới vào giỏ hàng trống và kiểm tra định dạng tiền tệ (₫)",
+    "category": "positive",
+    "setup": {
+      "addProductsIndices": [0]
+    },
+    "action": "verify_single_item_added",
+    "expected": {
+      "rowCount": 1,
+      "quantity": 1,
+      "currencySymbol": "₫"
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_02",
+    "title": "EC_ST01, EC_P02 - Thêm cùng một sản phẩm đã có trong giỏ phải tăng số lượng, không tạo dòng mới",
+    "category": "positive",
+    "setup": {
+      "addProductsIndices": [0, 0]
+    },
+    "action": "verify_duplicate_merged",
+    "expected": {
+      "rowCount": 1,
+      "quantity": 2
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_03",
+    "title": "EC_PLUS01, EC_UI01 - Bấm nút '+' trong bảng giỏ hàng để tăng số lượng sản phẩm",
+    "category": "positive",
+    "setup": {
+      "addProductsIndices": [0]
+    },
+    "action": "click_plus_button",
+    "expected": {
+      "rowCount": 1,
+      "quantityAfter": 2
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_05",
+    "title": "EC_MIN02 - Bấm nút '-' khi số lượng đang ở mức tối thiểu Q = 1 (không giảm về 0)",
+    "category": "boundary",
+    "setup": {
+      "addProductsIndices": [0]
+    },
+    "action": "click_minus_at_min_boundary",
+    "expected": {
+      "rowCount": 1,
+      "quantityAfter": 1
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_06",
+    "title": "EC_DEL01 - Bấm nút Xóa sản phẩm bắt buộc hiển thị Hộp thoại xác nhận (Confirmation Dialog)",
+    "category": "negative",
+    "setup": {
+      "addProductsIndices": [0]
+    },
+    "action": "verify_delete_confirm_dialog",
+    "expected": {
+      "dialogRequired": true
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_08",
+    "title": "EC_DEL03 - Xóa 1 sản phẩm khi giỏ có 2 sản phẩm khác nhau, kiểm tra cập nhật bảng",
+    "category": "positive",
+    "setup": {
+      "addProductsIndices": [0, 1]
+    },
+    "action": "delete_first_of_two_items",
+    "expected": {
+      "rowCountBefore": 2,
+      "rowCountAfter": 1
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_09",
+    "title": "EC_ST02 - Kiểm tra giao diện Giỏ hàng trống (Empty State: Thông báo + Hình minh họa)",
+    "category": "edge",
+    "setup": {
+      "addProductsIndices": []
+    },
+    "action": "verify_empty_state_with_illustration",
+    "expected": {
+      "emptyMessage": "Giỏ hàng của bạn đang trống",
+      "requireIllustration": true
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_10",
+    "title": "EC_NAV02 - Kiểm tra nút 'Tiếp tục mua sắm' điều hướng về trang chủ (/)",
+    "category": "positive",
+    "setup": {
+      "addProductsIndices": []
+    },
+    "action": "click_continue_shopping",
+    "expected": {
+      "buttonLabel": "Tiếp tục mua sắm",
+      "redirectUrl": "/"
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_11",
+    "title": "EC_UI02 - Kiểm tra nhãn hiển thị Tổng tiền bắt buộc là 'Tổng cộng' (không phải 'Tổng tạm tính')",
+    "category": "negative",
+    "setup": {
+      "addProductsIndices": [0]
+    },
+    "action": "verify_total_label",
+    "expected": {
+      "requiredTotalLabel": "Tổng cộng:"
+    }
+  },
+  {
+    "tcId": "TC_CART_DT_12",
+    "title": "EC_UI01, EC_UI03 - Kiểm tra quy chuẩn tiêu đề cột 'Đơn giá' và nhãn nút 'Tiếp tục mua sắm' khi có hàng",
+    "category": "negative",
+    "setup": {
+      "addProductsIndices": [0]
+    },
+    "action": "verify_table_headers_and_continue_btn",
+    "expected": {
+      "requiredPriceHeader": "Đơn giá",
+      "requiredContinueLabel": "Tiếp tục mua sắm"
+    }
+  },
+  {
+    "tcId": "TC_CART_BVA_01",
+    "title": "BVA: Q = 2, bấm nút '-' một lần giảm về đúng biên LB = 1",
+    "category": "boundary",
+    "setup": {
+      "addProductsIndices": [0, 0]
+    },
+    "action": "click_minus_from_two_to_one",
+    "expected": {
+      "quantityAfter": 1
+    }
+  },
+  {
+    "tcId": "TC_CART_BVA_02",
+    "title": "BVA: Xóa sản phẩm cuối cùng (Count 1 -> 0) chuyển từ bảng sang Empty State",
+    "category": "boundary",
+    "setup": {
+      "addProductsIndices": [0]
+    },
+    "action": "delete_last_item_to_empty_state",
+    "expected": {
+      "rowCountBefore": 1,
+      "rowCountAfter": 0,
+      "emptyMessage": "Giỏ hàng của bạn đang trống"
+    }
+  }
+]
