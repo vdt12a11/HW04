@@ -185,3 +185,29 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Chuyển sang Bước 4 — Tự động hóa Feature C (`FR-12: Access Control`).
+
+---
+
+## Prompt #9 — Bước 4: Tự động hóa Feature C (`FR-12: Access Control`) (12 Test Cases) (2026-11-16 23:36)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > Hãy tiếp tục bước 4
+- **Goal & Plan:**
+  - Chuyển đổi **12 test cases** của `FR-12: Access Control` từ HW02 (`TC_AC_DT_01, 03, 04, 06, 08, 09, 10, 11, 13, 14, 15` và `TC_AC_BVA_01`) thành file dữ liệu [`data/fr12_access_control.json`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/data/fr12_access_control.json).
+  - Sinh kịch bản ban đầu [`tests/fr12-access-control.spec.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/tests/fr12-access-control.spec.ts) (*Commit `.spec.ts` #7*).
+  - Thực hiện **Human Code Review** theo 5 tiêu chí trong [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md):
+    1. Sửa **Sai cổng URL, Fragile Selectors & Native Alert**: Bản AI đầu tiên dùng `page.goto('/admin')` (trỏ nhầm vào cổng `5173`), dùng `input[type="email"]` (nhưng `App.jsx` của Web Admin dùng `<input placeholder="Email">` không có `type="email"`), không bắt `window.alert("Bạn không phải là admin!")` và thiếu hàm ký JWT HMAC-SHA256 thực tế $\rightarrow$ Sửa sang `http://localhost:5174`, dùng `getByPlaceholder('Email')`, bắt `page.once('dialog', ...)` và viết hàm `signJwtHs256` chuẩn RFC 7519 (*Commit `.spec.ts` #8*).
+    2. Bổ sung **3 Assertion Patterns** + tự động dọn dẹp sản phẩm rác (Test Isolation): (1) HTTP Status Code Assertion (`expect(expected.statusCodes).toContain(actualStatus)`), (2) Client Storage State Assertion (`localStorage.getItem('adminToken')`), (3) Web Admin UI Visibility & Heading Assertion (`toBeVisible()` trên `EShop Admin` / `Admin Login`) (*Commit `.spec.ts` #9*).
+  - Chạy thực nghiệm trên cả 3 trình duyệt (`chromium`, `firefox`, `webkit` = $12 \times 3 = 36$ runs), lưu báo cáo HTML riêng cho `FR-12` và ảnh chụp màn hình 5 lỗ hổng phân quyền thật của SUT.
+- **Actions Taken:**
+  - Đọc mã nguồn `frontend-admin/src/App.jsx`, `backend/server.js` và `backend/database.js`.
+  - Tạo `data/fr12_access_control.json` (12 TCs).
+  - Tạo và tinh chỉnh `tests/fr12-access-control.spec.ts` qua 3 Git commits riêng biệt (`82a1c93`, `67ada85`, `1210678` $\rightarrow$ nâng tổng số commits chạm vào file `.spec.ts` lên **9 commits**).
+  - Cập nhật `Artifact #6` và `Artifact #7` vào [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md) và ghi nhận Prompt #9 vào `Prompt_log.md`.
+  - Thực thi `npx playwright test tests/fr12-access-control.spec.ts` trên 3 trình duyệt.
+- **AI Output:**
+  - Hoàn tất bộ Data-Driven Test Suite cho Feature C (`FR-12`) với 12 test cases $\times$ 3 browsers = 36 executions, bắt trọn 5 lỗ hổng bảo mật phân quyền (`SEC-02`/`SEC-03`) của hệ thống EShop.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Chuyển sang Bước 5 & 6 — Chạy tổng hợp toàn bộ Suite (36 TCs $\times$ 3 browsers = 108 runs), xây dựng Agent Skill (Mục 7), và hoàn thiện toàn bộ hồ sơ báo cáo nộp bài.
