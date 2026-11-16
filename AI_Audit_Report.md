@@ -37,10 +37,11 @@ Tài liệu được biên soạn lại từ Med Kharbach, PhD (2026) — Mẫu 
 
 | (1) Prompt + Công cụ | (2) Output AI | (3) Verdict | (4) Lý do (ISTQB / Best Practices Automation) | (5) Bản SV sửa (Human Review & Changes) |
 | --- | --- | --- | --- | --- |
+| **Artifact #1**<br>Tool: Antigravity (Gemini 4 Argon)<br>Thời gian: 2026-11-16 21:59<br><br>Prompt:<br>`Hãy bắt đầu làm bước 1` | Sinh file cấu hình [`playwright.config.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/playwright.config.ts) với 3 projects (`chromium`, `firefox`, `webkit`) và cấu hình `reporter: [['html', { open: 'never' }]]` cùng `metadata: { studentId: '23120397' }`. | **INCOMPLETE** | - Theo Mục 6 & Mục 11 (Anti-AI-Cheat Constraints) của đề bài HW04 và chuẩn ISTQB Test Reporting (ISO/IEC/IEEE 29119-3), báo cáo HTML phải **hiển thị trực quan (`visibly displays`)** dòng chữ `"Run by: {StudentID}"` kèm theo **ISO timestamp**.<br>- Trong Playwright HTML Reporter mặc định, trường `metadata` trong `playwright.config.ts` không hiển thị trực tiếp lên thanh tiêu đề/header của trang `index.html`, và nếu để `fullyParallel: true` với nhiều workers cùng ghi vào cơ sở dữ liệu SQLite đơn luồng của EShop Backend (`localhost:3000`) sẽ gây lỗi race condition (`SQLITE_BUSY` hoặc dữ liệu giỏ hàng/user bị ghi đè giữa 3 trình duyệt). | 1. **Sửa cấu hình thực thi:** Đặt `fullyParallel: false` và `workers: 1` trong [`playwright.config.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/playwright.config.ts) để 3 trình duyệt chạy tuần tự, bảo toàn tính cô lập dữ liệu (Test Isolation) trên SQLite.<br>2. **Bổ sung `title` động:** Thêm `title: \`Run by: 23120397 \| ISO Timestamp: ${RUN_TIMESTAMP}\`` vào cấu hình HTML Reporter.<br>3. **Viết thêm Custom Reporter [`scripts/student-stamp-reporter.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/scripts/student-stamp-reporter.ts):** Tự động can thiệp vào sự kiện `onEnd` để chèn thanh Header & Footer cố định hiển thị nổi bật **`Run by: 23120397 (Văn Đức Tuấn) — ISO Timestamp: <YYYY-MM-DDTHH:mm:ss.sssZ>`** trực tiếp vào `playwright-report/index.html`. |
 
 ## 4. Tổng kết Độ chính xác AI
 
-- **Tổng số Artifacts do AI sinh:** 0 *(sẽ cập nhật tự động theo tiến độ)*
+- **Tổng số Artifacts do AI sinh:** 1 *(cập nhật tự động theo tiến độ)*
 - **Số lượng VALID:** 0
-- **Số lượng INCOMPLETE:** 0
+- **Số lượng INCOMPLETE:** 1
 - **Số lượng INVALID:** 0

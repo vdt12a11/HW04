@@ -67,3 +67,26 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Khởi tạo cấu trúc dự án Playwright cho HW04, kiểm tra SUT (`D:\Học Tập\Kiem thu phan mem\Eshop`), và bắt đầu từng bước (step-by-step) với Feature A (`FR-01`), Feature B (`FR-07`), Feature C (`FR-12`).
+
+---
+
+## Prompt #4 — Bước 1: Khởi tạo dự án Playwright & Cấu hình 3 trình duyệt kèm định danh `Run by: 23120397` (2026-11-16 21:59)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > Hãy bắt đầu làm bước 1
+- **Goal & Plan:**
+  - Kiểm tra cấu hình hệ thống SUT [`D:\Học Tập\Kiem thu phan mem\Eshop\eshop-sut`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/Eshop/eshop-sut) (Backend `localhost:3000`, Frontend Web `localhost:5173`, Frontend Admin `localhost:5174`).
+  - Khởi tạo [`package.json`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/package.json), [`.gitignore`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/.gitignore), và [`playwright.config.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/playwright.config.ts) hỗ trợ đầy đủ 3 trình duyệt (`chromium`, `firefox`, `webkit`).
+  - Thực hiện Human Review trên cấu hình báo cáo HTML: bổ sung custom reporter [`scripts/student-stamp-reporter.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/scripts/student-stamp-reporter.ts) và [`scripts/stamp-report.js`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/scripts/stamp-report.js) để tự động đóng dấu hiển thị trực quan `Run by: 23120397` cùng `ISO Timestamp` vào `<title>`, Header banner, Footer và Metadata của `playwright-report/index.html`.
+  - Ghi nhận `Artifact #1` vào Bảng Kiểm toán 5 cột trong [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md).
+- **Actions Taken:**
+  - Đọc `run_servers.bat` và `setup_guide.md` trong `..\Eshop\eshop-sut`.
+  - Tạo `.gitignore`, `package.json`, `playwright.config.ts`, `scripts/student-stamp-reporter.ts`, và `scripts/stamp-report.js`.
+  - Chạy cài đặt `@playwright/test` và kiểm tra 3 trình duyệt (`chromium`, `firefox`, `webkit`) trong `$env:LOCALAPPDATA\ms-playwright`.
+  - Cập nhật `Artifact #1` vào `AI_Audit_Report.md` và ghi nhận Prompt #4 vào `Prompt_log.md`.
+- **AI Output:**
+  - Hoàn tất cấu hình dự án Playwright đa trình duyệt (`chromium`, `firefox`, `webkit`) và cơ chế tự động gắn định danh `Run by: 23120397 | ISO Timestamp` lên HTML Report.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Chuyển sang Bước 2 — Thiết kế file dữ liệu JSON và sinh kịch bản kiểm thử tự động cho **Feature A (`FR-01: Account Registration`)**.

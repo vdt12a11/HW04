@@ -1,0 +1,20 @@
+{
+  "name": "hw04-eshop-automation-23120397",
+  "version": "1.0.0",
+  "description": "HW04 - Automation Testing for EShop SUT (FR-01, FR-07, FR-12) - Run by: 23120397 (Van Duc Tuan)",
+  "private": true,
+  "scripts": {
+    "test": "playwright test && node scripts/stamp-report.js",
+    "test:fr01": "playwright test tests/fr01-registration.spec.ts && node scripts/stamp-report.js",
+    "test:fr07": "playwright test tests/fr07-shopping-cart.spec.ts && node scripts/stamp-report.js",
+    "test:fr12": "playwright test tests/fr12-access-control.spec.ts && node scripts/stamp-report.js",
+    "test:chromium": "playwright test --project=chromium && node scripts/stamp-report.js",
+    "test:firefox": "playwright test --project=firefox && node scripts/stamp-report.js",
+    "test:webkit": "playwright test --project=webkit && node scripts/stamp-report.js",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^22.0.0"
+  }
+}
