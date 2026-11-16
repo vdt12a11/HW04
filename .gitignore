@@ -3,3 +3,4 @@ test-results/
 playwright-report/.cache/
 .env
 *.log
+Prompt_log.md
