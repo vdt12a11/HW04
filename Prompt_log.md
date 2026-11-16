@@ -298,3 +298,26 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.2 (Apply) & G9.4 (Collaborate with AI).
   - **Next Steps:** Chờ sinh viên yêu cầu tiếp tục làm Agent Skill (Mục 7) và xuất `git_commit_log.txt`.
+
+---
+
+## Prompt #14 — Cập nhật file Word `[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx` cho phù hợp với HW04 và 8 Artifacts (2026-11-17 00:47)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > bạn hãy chỉnh sửa file Ai audit report .word cho phù hợp với chủ đề HW04 và các artifact
+- **Goal & Plan:**
+  - Cập nhật toàn bộ nội dung file [`[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/%5BAI-02%5D%20-%20FIT@HCMUS%20-%20AI%20Audit%20Report_Vn.docx) (đang mang dữ liệu cũ của HW03 và bị lồng bảng lỗi) từ mẫu sạch `[AI-02]` cho đồng bộ 100% với **HW#04 — Automation Testing**:
+    1. **Mục 1 (Thông tin Sinh viên):** Cập nhật `Mã bài tập = HW#04`, `Ngày làm bài = 16/11/2026`, `Công cụ AI = Antigravity (Gemini 4 Argon)`.
+    2. **Mục 3 (Bảng Audit 5 cột):** Điền đầy đủ **Artifact #1 $\rightarrow$ Artifact #8** (đồng bộ với [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md)) và giữ sạch các dòng chờ `Artifact #9`, `Artifact #10`.
+    3. **Mục 4 (Bảng Tổng kết Độ chính xác AI):** Cập nhật số liệu chính xác (Tổng = `8`, VALID = `4 (50.0%)`, INVALID = `3 (37.5%)`, INCOMPLETE = `1 (12.5%)`).
+    4. **Mục 5 & Mục 6:** Cập nhật kết luận Nên / Không nên dùng AI trong kiểm thử tự động Playwright và khai báo bắt buộc (`I use AI tools for the following tasks...`), cùng bảng Chữ ký (`17/11/2026`).
+- **Actions Taken:**
+  - Dùng script Python xử lý trực tiếp cấu trúc OpenXML của [`[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/%5BAI-02%5D%20-%20FIT@HCMUS%20-%20AI%20Audit%20Report_Vn.docx), bảo toàn nguyên vẹn định dạng bảng, font chữ và đường viền của biểu mẫu chuẩn FIT@HCMUS.
+  - Kiểm tra lại toàn bộ 4 bảng và các đoạn văn bản sau khi xuất file `.docx`.
+  - Ghi nối tiếp (append) Prompt #14 vào [`Prompt_log.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md).
+- **AI Output:**
+  - File [`[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/%5BAI-02%5D%20-%20FIT@HCMUS%20-%20AI%20Audit%20Report_Vn.docx) đã được làm mới hoàn toàn, đồng bộ với chủ đề HW04 và 8 Artifacts thực tế.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Nếu sinh viên xây dựng thêm Agent Skill (Mục 7), bổ sung `Artifact #9` vào cả file `.md` và `.docx`, đồng thời xuất `git_commit_log.txt` và PDF để đóng gói nộp bài.
