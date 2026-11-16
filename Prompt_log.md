@@ -159,3 +159,29 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Chuyển sang Bước 3 — Tự động hóa Feature B (`FR-07: Shopping Cart`).
+
+---
+
+## Prompt #8 — Bước 3: Tự động hóa Feature B (`FR-07: Shopping Cart`) (12 Test Cases) (2026-11-16 23:07)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > Bạn hãy thực hiện bước 3
+- **Goal & Plan:**
+  - Chuyển đổi **12 test cases** của `FR-07: Shopping Cart` từ HW02 (`TC_CART_DT_01, 02, 03, 05, 06, 08, 09, 10, 11, 12` và `TC_CART_BVA_01, 02`) thành file dữ liệu [`data/fr07_shopping_cart.json`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/data/fr07_shopping_cart.json).
+  - Sinh kịch bản ban đầu [`tests/fr07-shopping-cart.spec.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/tests/fr07-shopping-cart.spec.ts) (*Commit `.spec.ts` #4*).
+  - Thực hiện **Human Code Review** theo 5 tiêu chí trong [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md):
+    1. Sửa **SPA State Loss & Fragile Selectors**: Phát hiện `CartContext.jsx` lưu giỏ hàng trong `useState([])` (RAM), nên bản AI đầu tiên dùng `page.goto('/cart')` đã làm reload trang và mất trắng giỏ hàng $\rightarrow$ Thay bằng click vào `<Link to="/cart">` trên thanh Header và thay `div:nth-child(...)` bằng `getByRole('button', { name: 'Thêm vào giỏ' })`, xóa `waitForTimeout(1000)` (*Commit `.spec.ts` #5*).
+    2. Bổ sung **3 Assertion Patterns**: (1) URL/Route Navigation (`toHaveURL(/\/cart$/)`, `toHaveURL(/\/$/)`), (2) DOM Table Count & Structure (`toHaveCount(1)`, `toHaveCount(5)`, `toHaveCount(0)`), (3) UI Text, Visibility & Native Confirmation Dialog (`toContainText`, `toHaveText`, `toBeVisible`, `page.once('dialog', ...)` check) (*Commit `.spec.ts` #6*).
+  - Chạy thực nghiệm trên cả 3 trình duyệt (`chromium`, `firefox`, `webkit` = $12 \times 3 = 36$ runs), lưu báo cáo HTML riêng cho `FR-07` và ảnh chụp màn hình 6 lỗi thật của SUT.
+- **Actions Taken:**
+  - Đọc mã nguồn `Cart.jsx`, `CartContext.jsx`, `Home.jsx`, `App.jsx` và `ProductDetail.jsx` của `eshop-sut`.
+  - Tạo `data/fr07_shopping_cart.json` (12 TCs).
+  - Tạo và tinh chỉnh `tests/fr07-shopping-cart.spec.ts` qua 3 Git commits riêng biệt (`c80ecd0`, `c3f9b29`, `e7dcbeb`).
+  - Cập nhật `Artifact #4` và `Artifact #5` vào [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md) và ghi nhận Prompt #8 vào `Prompt_log.md`.
+  - Thực thi `npx playwright test tests/fr07-shopping-cart.spec.ts` trên 3 trình duyệt.
+- **AI Output:**
+  - Hoàn tất bộ Data-Driven Test Suite cho Feature B (`FR-07`) với 12 test cases $\times$ 3 browsers = 36 executions, bắt trọn 6 lỗi nghiệp vụ & UI thật của hệ thống (Genuine SUT Bugs).
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Chuyển sang Bước 4 — Tự động hóa Feature C (`FR-12: Access Control`).
