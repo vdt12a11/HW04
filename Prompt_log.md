@@ -113,3 +113,49 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Tiến hành Bước 2 — Thiết kế dữ liệu JSON và kịch bản tự động hóa cho **Feature A (`FR-01: Account Registration`)** theo đúng quy trình Review vừa cấu hình.
+
+---
+
+## Prompt #6 — Giải đáp về nguồn gốc bộ Test Cases cho Bước 2 (2026-11-16 22:48)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > các test case ở bước 2 bạn lấy ở HW02 hay mới đc sinh ra, hay chuẩn bị làm mới sinh
+- **Goal & Plan:**
+  - Giải thích rõ ràng cho sinh viên về nguồn gốc các test cases sẽ dùng ở Bước 2 và trạng thái hiện tại của workspace:
+    1. **Trạng thái hiện tại:** Hiện tại trong thư mục `HW04` **chưa sinh** bất kỳ file test data (`.json`/`.csv`) hay test script (`.spec.ts`) nào (mới chỉ xong Bước 1 là cấu hình `playwright.config.ts`).
+    2. **Nguồn gốc Test Cases:** Sẽ **lấy trực tiếp từ bộ Test Cases đã thiết kế ở HW02** ([`HW02/Main_report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW02/Main_report.md)), giữ nguyên mã định danh (`TC_DT_...`, `TC_BVA_...`) để đảm bảo tính nhất quán và truy vết giữa HW02 và HW04 theo đúng yêu cầu *"convert at least 12 test cases into automation scripts"*.
+    3. **Cách thực hiện khi bắt đầu Bước 2:** Dùng AI để chuyển đổi (convert) các test cases từ bảng Markdown của HW02 thành file dữ liệu `.json` và sinh kịch bản `.spec.ts` tương ứng.
+- **Actions Taken:**
+  - Ghi nối tiếp (append) Prompt #6 vào [`Prompt_log.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md).
+- **AI Output:**
+  - Câu trả lời làm rõ: (1) Test cases gốc được lấy từ chính `HW02/Main_report.md` của bạn, và (2) File dữ liệu `.json` cùng kịch bản `.spec.ts` hiện chưa được tạo mà sẽ được sinh ra từng bước khi bắt đầu Bước 2.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.4 (Collaborate with AI).
+  - **Next Steps:** Sinh viên xác nhận chọn bao nhiêu test cases từ 27 test cases của `FR-01` ở HW02 (ví dụ: chọn 15–18 test cases tiêu biểu hoặc lấy cả 27 test cases) để bắt đầu Bước 2a.
+
+---
+
+## Prompt #7 — Bước 2: Tự động hóa Feature A (`FR-01: Account Registration`) gọn nhất (12 Test Cases) (2026-11-16 22:50)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > hãy làm bước 2 gọn nhất có thể
+- **Goal & Plan:**
+  - Chọn lọc **12 test cases** tinh gọn và bao phủ đầy đủ từ bộ 27 TCs của `FR-01` ở HW02 (gồm Positive `TC_DT_01`, Negative `TC_DT_02, 04, 09, 10, 11, 12, 13, 15` và Boundary `TC_BVA_01, 02, 03`) để tạo file dữ liệu [`data/fr01_registration.json`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/data/fr01_registration.json).
+  - Tạo bản kịch bản ban đầu [`tests/fr01-registration.spec.ts`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/tests/fr01-registration.spec.ts) do AI sinh (*Commit `.spec.ts` #1*).
+  - Thực hiện **Human Code Review** theo 5 tiêu chí trong [`AGENTS.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AGENTS.md):
+    1. Sửa **Fragile/Broken Selectors**: Thay `page.getByLabel(...)` (bị lỗi do `<label>` trong `Register.jsx` không có `htmlFor`) bằng bộ chọn cấu trúc gắn với nhãn `<label>` và loại bỏ `page.waitForTimeout(1000)` (*Commit `.spec.ts` #2*).
+    2. Bổ sung **3 Assertion Patterns** khác nhau: (1) URL/Navigation (`toHaveURL`), (2) UI Visibility & Error Banner (`toBeVisible`, `toContainText`, `toHaveText`), (3) DOM State & HTML5 Constraint Validation (`toHaveJSProperty('validity.valueMissing', true)`, `toBeEnabled`, `toHaveCount`) (*Commit `.spec.ts` #3*).
+  - Chạy thực nghiệm trên cả 3 trình duyệt (`chromium`, `firefox`, `webkit` = $12 \times 3 = 36$ lượt test) và phân loại kết quả theo Mục 4.2 của `AGENTS.md` (Script Defect vs. Genuine SUT Defect).
+- **Actions Taken:**
+  - Đọc mã nguồn `Register.jsx`, `server.js` và đặc tả `README.md` của `eshop-sut`.
+  - Tạo `data/fr01_registration.json` (12 TCs).
+  - Tạo và tinh chỉnh `tests/fr01-registration.spec.ts` qua 3 Git commits riêng biệt (`7d4ae6e`, `de45e77`, `6372785`).
+  - Cấu hình `webServer` trong `playwright.config.ts` và chạy `npx playwright test tests/fr01-registration.spec.ts` trên 3 trình duyệt.
+  - Cập nhật `Artifact #2` và `Artifact #3` vào [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md).
+- **AI Output:**
+  - Hoàn tất bộ Data-Driven Test Suite cho Feature A (`FR-01`) với 12 test cases $\times$ 3 browsers = 36 executions, ghi nhận đầy đủ kết quả Pass/Fail và 2 lỗi thật của hệ thống (Genuine SUT Bugs).
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.2 (Apply), G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Chuyển sang Bước 3 — Tự động hóa Feature B (`FR-07: Shopping Cart`).

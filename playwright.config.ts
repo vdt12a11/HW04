@@ -52,6 +52,31 @@ export default defineConfig({
     navigationTimeout: 15 * 1000,
   },
 
+  /* Tự động khởi chạy (hoặc tái sử dụng) 3 server của EShop SUT khi chạy test */
+  webServer: [
+    {
+      command: 'node server.js',
+      cwd: '../Eshop/eshop-sut/backend',
+      url: 'http://localhost:3000/health',
+      reuseExistingServer: true,
+      timeout: 15 * 1000,
+    },
+    {
+      command: 'npm run dev -- --port 5173',
+      cwd: '../Eshop/eshop-sut/frontend-web',
+      url: 'http://localhost:5173',
+      reuseExistingServer: true,
+      timeout: 30 * 1000,
+    },
+    {
+      command: 'npm run dev -- --port 5174',
+      cwd: '../Eshop/eshop-sut/frontend-admin',
+      url: 'http://localhost:5174',
+      reuseExistingServer: true,
+      timeout: 30 * 1000,
+    },
+  ],
+
   /* Cấu hình chạy đủ 3 trình duyệt bắt buộc: Chromium, Firefox, WebKit */
   projects: [
     {
