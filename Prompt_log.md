@@ -321,3 +321,23 @@
 - **Bloom-AI Level & Next Steps:**
   - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
   - **Next Steps:** Nếu sinh viên xây dựng thêm Agent Skill (Mục 7), bổ sung `Artifact #9` vào cả file `.md` và `.docx`, đồng thời xuất `git_commit_log.txt` và PDF để đóng gói nộp bài.
+
+---
+
+## Prompt #15 — Xóa Artifact #8 khỏi AI Audit Report (`.md` & `.docx`) (2026-11-17 01:20)
+
+- **AI Tool:** Antigravity (Gemini 4 Argon)
+- **User Prompt:**
+  > hãy bỏ đi artifact số 8
+- **Goal & Plan:**
+  - Xóa hàng **Artifact #8** khỏi bảng Audit trong cả [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md) và [`[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/%5BAI-02%5D%20-%20FIT@HCMUS%20-%20AI%20Audit%20Report_Vn.docx).
+  - Cập nhật lại bảng Tổng kết Độ chính xác AI (Tổng = `7` artifacts: `3 VALID`, `3 INVALID`, `1 INCOMPLETE`).
+- **Actions Taken:**
+  - Sửa [`AI_Audit_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/AI_Audit_Report.md) để xóa `Artifact #8` và cập nhật số liệu Mục 4.
+  - Cập nhật và xuất lại [`[AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/%5BAI-02%5D%20-%20FIT@HCMUS%20-%20AI%20Audit%20Report_Vn.docx) (Artifact #8 trở lại dòng trống).
+  - Ghi nối tiếp (append) Prompt #15 vào [`Prompt_log.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Prompt_log.md).
+- **AI Output:**
+  - Đã loại bỏ hoàn toàn Artifact #8 và đồng bộ số liệu 7 artifacts trên cả 2 định dạng `.md` và `.docx`.
+- **Bloom-AI Level & Next Steps:**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate with AI).
+  - **Next Steps:** Tiếp tục xây dựng Agent Skill (Mục 7) hoặc xuất `git_commit_log.txt` và PDF theo yêu cầu của sinh viên.
