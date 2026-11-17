@@ -88,7 +88,7 @@ Bộ 12 test cases được chuyển đổi từ bảng thiết kế Domain Test
 
 ### 3.3. Bảng Review & Gap Analysis cho Feature A (`FR-01`)
 
-| Mã Gap | Phân loại Lỗi của AI | Code AI sinh ban đầu (Before — Commit `7d4ae6e`) | Nguyên nhân AI mắc lỗi (Why AI missed it) | Bản đã sửa sau Human Review (After — Commits `de45e77`, `6372785`) |
+| Mã Gap | Phân loại Lỗi của AI | Code AI sinh ban đầu (Before — Commit `1848d8b`) | Nguyên nhân AI mắc lỗi (Why AI missed it) | Bản đã sửa sau Human Review (After — Commits `c54ac8f`, `d89ff5d`) |
 | :---: | :--- | :--- | :--- | :--- |
 | **GAP_FR01_01** | **Broken / Fragile Selectors** | `await page.getByLabel('Họ Tên').fill(tc.input.name);` | AI giả định mọi thẻ `<label>` trong React đều có thuộc tính `htmlFor` liên kết với `<input>`. Trong `Register.jsx`, `<label>Họ Tên</label>` và `<input>` là 2 thẻ anh em độc lập nên `getByLabel()` bị timeout 100%. | Dùng bộ chọn cấu trúc gắn với nhãn: `page.locator('form > div').filter({ has: page.locator('label', { hasText: 'Họ Tên' }) }).locator('input')`. |
 | **GAP_FR01_02** | **Weak Assertion / HTML5 Native Validation** | `await expect(page.locator('.bg-red-100')).toBeVisible();` cho mọi ca Negative | Ở `TC_DT_02` (rỗng Họ tên) và `TC_DT_04` (rỗng Email), trình duyệt chặn sự kiện `onSubmit` bằng thuộc tính HTML5 `required` nên hộp `.bg-red-100` không xuất hiện, gây False Negative. | Bổ sung kiểm tra thuộc tính DOM `await expect(targetField).toHaveJSProperty('validity.valueMissing', true)` và `await expect(errorAlert).toHaveCount(0)`. |
@@ -123,7 +123,7 @@ Bộ 12 test cases được chuyển đổi từ bảng thiết kế của `FR-0
 
 ### 4.3. Bảng Review & Gap Analysis cho Feature B (`FR-07`)
 
-| Mã Gap | Phân loại Lỗi của AI | Code AI sinh ban đầu (Before — Commit `c80ecd0`) | Nguyên nhân AI mắc lỗi (Why AI missed it) | Bản đã sửa sau Human Review (After — Commits `c3f9b29`, `e7dcbeb`) |
+| Mã Gap | Phân loại Lỗi của AI | Code AI sinh ban đầu (Before — Commit `d38e237`) | Nguyên nhân AI mắc lỗi (Why AI missed it) | Bản đã sửa sau Human Review (After — Commits `df3ea1b`, `936e1d0`) |
 | :---: | :--- | :--- | :--- | :--- |
 | **GAP_FR07_01** | **SPA State Loss (Mất trạng thái giỏ hàng)** | `await page.goto('/cart');` sau khi bấm thêm sản phẩm ở `/` | AI không phân tích `CartContext.jsx` nên không biết mảng `cart` chỉ lưu trong bộ nhớ React (`useState([])`) chứ không lưu vào `localStorage`. Gọi `page.goto('/cart')` gây tải lại trang và xóa sạch giỏ hàng! | Điều hướng nội bộ qua React Router Link trên thanh Header: `await page.locator('header nav').getByRole('link', { name: 'Giỏ hàng' }).click();`. |
 | **GAP_FR07_02** | **Fragile Positional Selector & Hard Sleep** | `await page.waitForTimeout(1000);`<br>`await page.locator('div.grid > div:nth-child(1) button').click();` | AI dùng bộ chọn phụ thuộc cứng vào cấu trúc lưới CSS và dùng `waitForTimeout(1000)` thay vì chờ danh sách sản phẩm render xong. | Dùng `const addToCartButtons = page.getByRole('button', { name: 'Thêm vào giỏ' }); await expect(addToCartButtons.first()).toBeVisible();`. |
@@ -158,7 +158,7 @@ Bộ 12 test cases được chuyển đổi từ bảng thiết kế của `FR-1
 
 ### 5.3. Bảng Review & Gap Analysis cho Feature C (`FR-12`)
 
-| Mã Gap | Phân loại Lỗi của AI | Code AI sinh ban đầu (Before — Commit `82a1c93`) | Nguyên nhân AI mắc lỗi (Why AI missed it) | Bản đã sửa sau Human Review (After — Commits `67ada85`, `1210678`) |
+| Mã Gap | Phân loại Lỗi của AI | Code AI sinh ban đầu (Before — Commit `8617963`) | Nguyên nhân AI mắc lỗi (Why AI missed it) | Bản đã sửa sau Human Review (After — Commits `6d5d969`, `cd4eb56`) |
 | :---: | :--- | :--- | :--- | :--- |
 | **GAP_FR12_01** | **Wrong Target URL & Broken Input Selector** | `await page.goto('/admin');`<br>`await page.locator('input[type="email"]').fill(...)` | AI đoán Web Admin nằm ở route `/admin` của cổng `5173` và đoán ô Email có `type="email"`. Thực tế Web Admin chạy ở cổng `5174` và ô Email chỉ có `placeholder="Email"`. | Sửa thành `await page.goto('http://localhost:5174')` và dùng `page.getByPlaceholder('Email')`, `page.getByPlaceholder('Password')`. |
 | **GAP_FR12_02** | **Unhandled Native Alert (`window.alert`)** | `await expect(page.locator('.error-message')).toBeVisible();` | Trong `frontend-admin/src/App.jsx` (dòng 66), khi `role !== 'admin'`, ứng dụng gọi hàm `alert("Bạn không phải là admin!")` chứ không render thẻ `.error-message`. | Bắt sự kiện `page.once('dialog', ...)` để kiểm tra nội dung cảnh báo và kiểm tra `localStorage.getItem('adminToken') === null`. |
@@ -202,12 +202,12 @@ AI có thể giúp hỗ trợ ta chuyển đổi các test case từ HW02 sang f
 
 | STT | Commit Hash | File Test Script Thay Đổi | Thông điệp Commit (Semantic Commit Message) |
 | :---: | :---: | :--- | :--- |
-| **1** | `7d4ae6e` | `tests/fr01-registration.spec.ts` | `feat(fr01): add data-driven JSON dataset (12 TCs) and initial AI-generated spec for FR-01` |
-| **2** | `de45e77` | `tests/fr01-registration.spec.ts` | `fix(fr01): replace broken getByLabel selectors, remove waitForTimeout, and isolate email per browser` |
-| **3** | `6372785` | `tests/fr01-registration.spec.ts` | `refactor(fr01): add 3 distinct assertion patterns (URL, UI error banner, HTML5 validity/DOM state)` |
-| **4** | `c80ecd0` | `tests/fr07-shopping-cart.spec.ts` | `feat(fr07): add data-driven JSON dataset (12 TCs) and initial AI-generated spec for FR-07` |
-| **5** | `c3f9b29` | `tests/fr07-shopping-cart.spec.ts` | `fix(fr07): use SPA header navigation to preserve CartContext state and remove flaky waits` |
-| **6** | `e7dcbeb` | `tests/fr07-shopping-cart.spec.ts` | `refactor(fr07): implement 3 distinct assertion patterns (URL, DOM count, UI text/dialog) across 12 TCs` |
-| **7** | `82a1c93` | `tests/fr12-access-control.spec.ts` | `feat(fr12): add data-driven JSON dataset (12 TCs) and initial AI-generated spec for FR-12` |
-| **8** | `67ada85` | `tests/fr12-access-control.spec.ts` | `fix(fr12): fix Web Admin port 5174, placeholder selectors, native alert dialog, and HS256 JWT signing` |
-| **9** | `1210678` | `tests/fr12-access-control.spec.ts` | `refactor(fr12): add 3 assertion patterns (HTTP status, localStorage token state, Admin UI visibility) and visual audit overlay` |
+| **1** | `1848d8b` | `tests/fr01-registration.spec.ts` | `feat(fr01): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-01` |
+| **2** | `c54ac8f` | `tests/fr01-registration.spec.ts` | `fix(fr01): sửa lỗi selector getByLabel, xóa waitForTimeout và cô lập email theo từng trình duyệt` |
+| **3** | `d89ff5d` | `tests/fr01-registration.spec.ts` | `refactor(fr01): bổ sung 3 assertion patterns (URL, thông báo lỗi UI, trạng thái DOM/HTML5 validity)` |
+| **4** | `d38e237` | `tests/fr07-shopping-cart.spec.ts` | `feat(fr07): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-07` |
+| **5** | `df3ea1b` | `tests/fr07-shopping-cart.spec.ts` | `fix(fr07): dùng điều hướng SPA trên Header để giữ state CartContext và xóa hard sleep` |
+| **6** | `936e1d0` | `tests/fr07-shopping-cart.spec.ts` | `refactor(fr07): triển khai 3 assertion patterns (URL, số lượng DOM, UI text/dialog) cho 12 TCs` |
+| **7** | `8617963` | `tests/fr12-access-control.spec.ts` | `feat(fr12): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-12` |
+| **8** | `6d5d969` | `tests/fr12-access-control.spec.ts` | `fix(fr12): sửa cổng Web Admin 5174, selector placeholder, native alert và ký JWT HS256` |
+| **9** | `cd4eb56` | `tests/fr12-access-control.spec.ts` | `refactor(fr12): bổ sung 3 assertion patterns (HTTP status, localStorage, Admin UI) và banner kiểm toán` |
