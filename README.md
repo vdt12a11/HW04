@@ -16,8 +16,8 @@
 | **1** | Task 1 - Feature B (`FR-07: Shopping Cart`) | 25 | 25 |
 | **1** | Task 1 - Feature C (`FR-12: Access Control`) | 25 | 25 |
 | **2** | Task 2 — Demo video | 15 | 15 |
-| **3** | Agent Skills | 10 | 10 |
-| | **Total** | **100** | **100** |
+| **3** | Agent Skills | 10 | 0 |
+| | **Total** | **100** | **90** |
 
 ---
 
@@ -37,7 +37,7 @@
 | **Public GitHub Repository** | `https://github.com/vdt12a11/HW04` | Chứa toàn bộ scripts, data JSON, HTML reports và lịch sử $\ge 8$ commits chạm vào `.spec.ts`. |
 | **GitHub Issues (13 Bugs)** | `https://github.com/vdt12a11/HW04/issues` | Danh sách 13 Issues (`#1` $\rightarrow$ `#13`) có đính kèm ảnh chụp màn hình thực tế. |
 | **Demo Video Link (Task 2)** | `https://youtu.be/5c6QUnO4VQE` | Video Unlisted ($\ge 5$ phút) thuyết minh tiếng Việt, chạy `FR-01` trên 3 trình duyệt + HTML Report `Run by: 23120397` + giải thích lỗi đã fix sau Human Review + xác thực `whoami`/`hostname`. |
-| **Agent Skill Demo Video Link (Mục 7)** | *(Cập nhật link YouTube tại đây trước khi nén `.zip`)* | Video minh họa sử dụng Agent Skill tự động hóa end-to-end. |
+| **Agent Skill Demo Video Link (Mục 7)** | *Không thực hiện* | Bỏ qua phần khuyến khích Agent Skill (đã trừ 10 điểm trong bảng tự đánh giá $\rightarrow$ `90/100`). |
 
 ---
 
