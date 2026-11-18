@@ -36,7 +36,7 @@
 | **Number of Bugs** | **13** | `FR-01`: 2 bugs; `FR-07`: 6 bugs; `FR-12`: 5 bugs — Đã tạo 13 Issues kèm screenshots tại `https://github.com/vdt12a11/HW04/issues` và lưu trong [`Bug_Report.md`](file:///d:/H%E1%BB%8Dc%20T%E1%BA%ADp/Kiem%20thu%20phan%20mem/HW04/Bug_Report.md). |
 | **Public GitHub Repository** | `https://github.com/vdt12a11/HW04` | Chứa toàn bộ scripts, data JSON, HTML reports và lịch sử $\ge 8$ commits chạm vào `.spec.ts`. |
 | **GitHub Issues (13 Bugs)** | `https://github.com/vdt12a11/HW04/issues` | Danh sách 13 Issues (`#1` $\rightarrow$ `#13`) có đính kèm ảnh chụp màn hình thực tế. |
-| **Demo Video Link (Task 2)** | *(Cập nhật link YouTube Unlisted tại đây trước khi nén `.zip`)* | Video $\ge 5$ phút thuyết minh tiếng Việt, chạy multi-browser + HTML Report `Run by: 23120397`. |
+| **Demo Video Link (Task 2)** | `https://youtu.be/5c6QUnO4VQE` | Video Unlisted ($\ge 5$ phút) thuyết minh tiếng Việt, chạy `FR-01` trên 3 trình duyệt + HTML Report `Run by: 23120397` + giải thích lỗi đã fix sau Human Review + xác thực `whoami`/`hostname`. |
 | **Agent Skill Demo Video Link (Mục 7)** | *(Cập nhật link YouTube tại đây trước khi nén `.zip`)* | Video minh họa sử dụng Agent Skill tự động hóa end-to-end. |
 
 ---

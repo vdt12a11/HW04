@@ -4,6 +4,9 @@
 - **Mã số sinh viên (`StudentID`):** `23120397`
 - **Lớp / Khóa:** Kiểm thử phần mềm - CQ2023/3
 - **Hệ thống kiểm thử (SUT):** EShop Demo Application (`https://github.com/ttbhanh/eshop-sut`)
+- **Public GitHub Repository:** `https://github.com/vdt12a11/HW04`
+- **GitHub Issues (13 Bugs):** `https://github.com/vdt12a11/HW04/issues`
+- **Demo Video Link (Task 2 — YouTube Unlisted):** `https://youtu.be/5c6QUnO4VQE`
 - **Công cụ & Framework:** Playwright `1.64.1` (TypeScript) + Playwright HTML Reporter + Custom Student Stamp Reporter (`Run by: 23120397`)
 - **Công cụ AI hỗ trợ:** Antigravity (Gemini 4 Argon) — Cấp độ Bloom-AI: **G9.2 (Apply)**, **G9.3 (Analyse)**, **G9.4 (Collaborate with AI)**
 
@@ -211,3 +214,15 @@ AI có thể giúp hỗ trợ ta chuyển đổi các test case từ HW02 sang f
 | **7** | `8617963` | `tests/fr12-access-control.spec.ts` | `feat(fr12): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-12` |
 | **8** | `6d5d969` | `tests/fr12-access-control.spec.ts` | `fix(fr12): sửa cổng Web Admin 5174, selector placeholder, native alert và ký JWT HS256` |
 | **9** | `cd4eb56` | `tests/fr12-access-control.spec.ts` | `refactor(fr12): bổ sung 3 assertion patterns (HTTP status, localStorage, Admin UI) và banner kiểm toán` |
+
+---
+
+## 10. Task 2 — Video Demo Thực Thi E2E Đa Trình Duyệt
+
+- **Link Video (YouTube Unlisted):** `https://youtu.be/5c6QUnO4VQE`
+- **Nội dung trình bày trong video:**
+  1. Xác thực chính chủ bằng terminal chạy lệnh `whoami` và `hostname`.
+  2. Giới thiệu cấu hình đa trình duyệt (`chromium`, `firefox`, `webkit`) trong `playwright.config.ts` và dữ liệu Data-Driven (`data/fr01_registration.json`).
+  3. Chạy trực tiếp kịch bản `tests/fr01-registration.spec.ts` (`npm run test:fr01`) trên cả 3 trình duyệt (36 executions) và mở xem báo cáo HTML có gắn `Run by: 23120397` kèm ISO Timestamp.
+  4. Đối chiếu `git diff 1848d8b..d89ff5d -- tests/fr01-registration.spec.ts` thuyết minh các lỗi AI đã sửa trong quá trình Human Review (`getByLabel()` thiếu `htmlFor`, xóa `waitForTimeout`, bổ sung HTML5 `validity.valueMissing` và 3 assertion patterns).
+  5. Phân tích các lỗi thật của EShop (`BUG_FR01_01`, `BUG_FR01_02`) cùng ảnh chụp màn hình và GitHub Issues.
