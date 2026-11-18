@@ -1,0 +1,920 @@
+====================================================================
+GIT COMMIT LOG — HW04 (AUTOMATION TESTING)
+Student: VĂN ĐỨC TUẤN (MSSV: 23120397)
+Repository: https://github.com/vdt12a11/HW04
+Minimum .spec.ts commits required (Section 12): 8
+Actual .spec.ts commits achieved: 9
+====================================================================
+
+[1] TEST-SCRIPT (.spec.ts) COMMITS (9 COMMITS):
+cd4eb56 refactor(fr12): bổ sung 3 assertion patterns (HTTP status, localStorage, Admin UI) và banner kiểm toán
+6d5d969 fix(fr12): sửa cổng Web Admin 5174, selector placeholder, native alert và ký JWT HS256
+8617963 feat(fr12): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-12
+936e1d0 refactor(fr07): triển khai 3 assertion patterns (URL, số lượng DOM, UI text/dialog) cho 12 TCs
+df3ea1b fix(fr07): dùng điều hướng SPA trên Header để giữ state CartContext và xóa hard sleep
+d38e237 feat(fr07): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-07
+d89ff5d refactor(fr01): bổ sung 3 assertion patterns (URL, thông báo lỗi UI, trạng thái DOM/HTML5 validity)
+c54ac8f fix(fr01): sửa lỗi selector getByLabel, xóa waitForTimeout và cô lập email theo từng trình duyệt
+1848d8b feat(fr01): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-01
+
+====================================================================
+[2] FULL GIT COMMIT HISTORY (LATEST FIRST):
+====================================================================
+
+commit 0d8993946bdc0cd38554af0822b522b5294b1d4c
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-18 11:52:27 +0700
+
+    docs(readme): cập nhật bảng tự đánh giá 90/100 (bỏ qua phần khuyến khích Agent Skill)
+
+ README.md | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit adfcaf10efd840dc3b30d8ebae78bd9fc9034462
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-18 11:48:24 +0700
+
+    docs: cập nhật link Demo Video Task 2 (YouTube Unlisted) vào README.md và Main_report.md
+
+ Main_report.md | 15 +++++++++++++++
+ README.md      |  2 +-
+ 2 files changed, 16 insertions(+), 1 deletion(-)
+
+commit bfd1b78a6cc1071112b987a2bd4e23c284b4b1d4
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 23:58:59 +0700
+
+    docs: cập nhật mã commit hash mới sau khi Việt hóa lịch sử Git
+
+ AI_Audit_Report.md                            |   6 +++---
+ Main_report.md                                |  24 ++++++++++++------------
+ [AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 36788 -> 36789 bytes
+ 3 files changed, 15 insertions(+), 15 deletions(-)
+
+commit dd7e501d7156ee6478e46ec53226cb21118f2e1e
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 23:41:11 +0700
+
+    docs(critique): đồng bộ bản sửa AI_Critique.md với Mục 8 của Main_report.md
+
+ AI_Critique.md | 2 +-
+ Main_report.md | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit d361041679782b75d76efb7d870052c3ce130700
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 01:24:50 +0700
+
+    chore: thêm Prompt_log.md vào .gitignore và cập nhật file Word AI Audit Report (7 artifacts)
+
+ .gitignore                                    |   1 +
+ Prompt_log.md                                 | 343 --------------------------
+ [AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 37177 -> 36788 bytes
+ 3 files changed, 1 insertion(+), 343 deletions(-)
+
+commit ab4e99c76149b51ea2f8c8014f7cd0e30f4fa615
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 01:22:27 +0700
+
+    docs(audit): xóa Artifact #8 khỏi AI_Audit_Report.md (còn 7 artifacts)
+
+ AI_Audit_Report.md |  5 ++---
+ Prompt_log.md      | 20 ++++++++++++++++++++
+ 2 files changed, 22 insertions(+), 3 deletions(-)
+
+commit 9a46c92dff1af7037a6ec33980703c447b1d27fd
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 00:51:57 +0700
+
+    docs(audit): cập nhật báo cáo Word [AI-02] cho HW04 với 8 artifacts và bảng tổng kết
+
+ Prompt_log.md                                 |  23 +++++++++++++++++++++++
+ [AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 0 -> 37177 bytes
+ 2 files changed, 23 insertions(+)
+
+commit e5fa7f311d0338111cbee832078a102537ef4183
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 00:37:48 +0700
+
+    docs(issues): liên kết 13 GitHub Issues (#1-#13) và thêm file Bug_report_link_git_hub.txt
+
+ Bug_Report.md               | 32 +++++++++++++++++---------------
+ Bug_report_link_git_hub.txt | 14 ++++++++++++++
+ Prompt_log.md               | 23 +++++++++++++++++++++++
+ README.md                   |  4 +++-
+ 4 files changed, 57 insertions(+), 16 deletions(-)
+
+commit 97e0bb3afa0b8f5acb7cacae38922853a229005b
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 00:25:22 +0700
+
+    docs(critique): chỉnh sửa văn phong tự nhiên cho AI_Critique.md và đồng bộ sang Main_report.md
+
+ AI_Critique.md |  2 +-
+ Main_report.md |  2 +-
+ Prompt_log.md  | 20 ++++++++++++++++++++
+ 3 files changed, 22 insertions(+), 2 deletions(-)
+
+commit 66aa970b3a26ebbd4c711d55a1f8e9655a11763c
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 00:18:55 +0700
+
+    docs(reports): thêm Main_report.md, Bug_Report.md (13 lỗi), AI_Critique.md và README.md
+
+ AI_Audit_Report.md |   5 +-
+ AI_Critique.md     |   3 +
+ Bug_Report.md      | 231 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Main_report.md     | 213 ++++++++++++++++++++++++++++++++++++++++++++++++
+ Prompt_log.md      |  23 ++++++
+ README.md          |  84 +++++++++++++++++++
+ 6 files changed, 557 insertions(+), 2 deletions(-)
+
+commit bb0c4907c72e2aab89d052307a7b7489cdbea2e8
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-17 00:08:30 +0700
+
+    test(suite): chạy tổng hợp 3 tính năng trên 3 trình duyệt (9 browser runs / 108 lượt) và lưu HTML report
+
+ Prompt_log.md                                      |  21 ++
+ .../0005c32b455debbf82707565dd43746a82d14048.zip   | Bin 0 -> 184022 bytes
+ .../0108bc9b290e557db03410733d291bcc746faf0c.webm  | Bin 0 -> 55959 bytes
+ .../04903e7c38d7a426b858d9be65dc3e3a07f87913.webm  | Bin 0 -> 253771 bytes
+ .../050c5ee190ae892d24d8842174b75c31a0327221.webm  | Bin 0 -> 30083 bytes
+ .../066621de499f1efe0f391c1afa3e7aa371b88b15.png   | Bin 0 -> 28186 bytes
+ .../06e3d7bc69f181076064a1d1d1abfe00ef51dfab.md    | 241 +++++++++++++++++++
+ .../09c7cdad51127966a4aee48dbb9c5b41e3235849.zip   | Bin 0 -> 1036112 bytes
+ .../0af1bdc3bd32d4c1e71ac1608479f43216a234f5.webm  | Bin 0 -> 97051 bytes
+ .../0c36c08ba50f2914ff5a706ccedd274b72e417ce.png   | Bin 0 -> 26045 bytes
+ .../0e5427ddc850de86498680885ec01a3024462f21.png   | Bin 0 -> 66051 bytes
+ .../0fd19f61f1429b38cec7a4c01ee1d9c289b8105c.md    | 147 ++++++++++++
+ .../10c47753e37bfa1614d94e74b7798ef48e395b47.webm  | Bin 0 -> 158942 bytes
+ .../10ce1ebb1d1542fb4630b4bc68eda844f8b81348.md    | 173 ++++++++++++++
+ .../11a2fd87155c34c3afb83b69dc74cf53527d8164.md    | 208 ++++++++++++++++
+ .../1259ea1bdbe1e9f445c5bf0790c06ef969a1fa76.webm  | Bin 0 -> 87833 bytes
+ .../125e8a3a35002a3612347e0ba2fa52b688308b43.md    | 178 ++++++++++++++
+ .../1428e0beef67659cfe85d1e19064454d77d24673.png   | Bin 0 -> 28056 bytes
+ .../14a14417fcfd59b67d22b1684406b1ed2db2f23e.png   | Bin 0 -> 29154 bytes
+ .../15137e77990ebf7ab598d30dd8c4bf0f2aaa2623.zip   | Bin 0 -> 94597 bytes
+ .../164e6324a2791461f2547fe3e9624eb05e89a3fd.zip   | Bin 0 -> 316676 bytes
+ .../16edf0e0201b671e85fe16360499b2ecf4939dac.zip   | Bin 0 -> 609698 bytes
+ .../178f3ead9b7038c8db68f84e75476427b92adbda.zip   | Bin 0 -> 1291574 bytes
+ .../17d9ce6080f17ad5b0c445a77174f6401b003e73.webm  | Bin 0 -> 79083 bytes
+ .../18b8291fedadf7ab25955124aeb3cbee93458c02.md    | 159 +++++++++++++
+ .../18feb7bcdbce4c6292daa16aa150064e3e195914.png   | Bin 0 -> 29270 bytes
+ .../1aa076db9257a25c5085aa4100825ed88eae8226.zip   | Bin 0 -> 326680 bytes
+ .../1aa898bbcbc0a13580f7c9419cb0b127bf957031.png   | Bin 0 -> 23972 bytes
+ .../1c3bd30862eb3ee361ee854dc8325665ccd93aa8.zip   | Bin 0 -> 478126 bytes
+ .../1c73d3cd2a23d8cb7808d9925f71bc66e9a5f16d.md    | 159 +++++++++++++
+ .../1ec7d8b28b8c0742c239c137ed14ec436a3e9f38.zip   | Bin 0 -> 1306476 bytes
+ .../1f895bca4482add83bdf7c42b62afa2d273404d9.zip   | Bin 0 -> 568188 bytes
+ .../20452e578e7d0a161e7613670a648c239516947d.webm  | Bin 0 -> 88477 bytes
+ .../23c3d0fe6755c43cc79ef4ef55d8887c8cb59704.webm  | Bin 0 -> 97708 bytes
+ .../256780d1369f1dd6d9683d636c82e48af6cfbb86.webm  | Bin 0 -> 49696 bytes
+ .../297d4453b9f842e9dde249b8bbd089a13b5f8be4.zip   | Bin 0 -> 190195 bytes
+ .../299681cbf990627dd472fac162e8034a4c3ceab7.png   | Bin 0 -> 29466 bytes
+ .../2cd3924d2fb1b87456c5afb873341a6b8062915e.zip   | Bin 0 -> 500494 bytes
+ .../2e00f2be4a72314843f09ab7cdd237d5dc7d3742.png   | Bin 0 -> 26116 bytes
+ .../2e24ed49d124a20142eef9a5c6eb237ec925ac9e.zip   | Bin 0 -> 616711 bytes
+ .../320b2c2da7998d5057db33006fcd88f840b9d885.zip   | Bin 0 -> 173018 bytes
+ .../3476f7be630be2794216750ce04d21b555f9ae4e.png   | Bin 0 -> 29786 bytes
+ .../39193a70b20fbebd7b774be977216e0de248e64b.zip   | Bin 0 -> 1016135 bytes
+ .../3b2da7735152b22bbc65a0cfc0aebb66f62cfa49.md    | 178 ++++++++++++++
+ .../3b4da7c9fd8e318068c84efac832b04ee89856b4.png   | Bin 0 -> 71981 bytes
+ .../3c9a0d87fc723622a00ef6f00ecc7282d50c3856.png   | Bin 0 -> 27683 bytes
+ .../401ab3cd1e3b75dd34e5b26b5755dd16a52e74fd.png   | Bin 0 -> 42696 bytes
+ .../4449d7bcf5be3d78f1df579fb2699fb54c33be71.webm  | Bin 0 -> 35177 bytes
+ .../47765b7a491dcd3948569916fa498423b3281cdc.zip   | Bin 0 -> 384193 bytes
+ .../4804f25de850fe8987460aff608040e428184d7b.md    | 178 ++++++++++++++
+ .../4b2c3c6c9ae40e8b9d405b33a6735f4ca118bd00.zip   | Bin 0 -> 1546057 bytes
+ .../4ccf36417e63b0093c9744bc39e40c0e7bff588a.md    | 163 +++++++++++++
+ .../4cd6c929a655fc8ed939bb1f4158079415d9bcac.zip   | Bin 0 -> 182040 bytes
+ .../5120a60b44997aef5f2f530e306cea5c9c0dde3e.md    | 159 +++++++++++++
+ .../516bcde1c0e9ea0e0b44525606ccd35ee6d334e7.webm  | Bin 0 -> 222443 bytes
+ .../5382aba4d185bda77a7f0602db5b145fd577359a.zip   | Bin 0 -> 358038 bytes
+ .../5385918be2e543c1f8d95cf85e0443c302695e59.webm  | Bin 0 -> 147647 bytes
+ .../549312e89f3cc04d60fb94e8b28a6cbd01a6cca3.zip   | Bin 0 -> 255781 bytes
+ .../54a097977f17f1324df46d2b5437a0d41f739abd.md    | 159 +++++++++++++
+ .../55ed82416de428f5d21f2a656dbf623af22f3b1c.md    | 256 ++++++++++++++++++++
+ .../560614968192571ee2aaded16572b93b0e249106.md    | 178 ++++++++++++++
+ .../561360ab1a242cfa2e4f254d534854504678ecfe.webm  | Bin 0 -> 247223 bytes
+ .../567d4d2486b7ca46dbf8ed87626f4dd553927121.png   | Bin 0 -> 25878 bytes
+ .../5844d284f08bb0c23fbe1ece8501f777e65772c8.zip   | Bin 0 -> 240856 bytes
+ .../58c173fa9173664d8d3b513ac3cb8ea2617e41fb.webm  | Bin 0 -> 93473 bytes
+ .../59ded49458c1701e9cfa5e97cb3361ea2f02f2b1.md    | 240 +++++++++++++++++++
+ .../5b0c9a718a7fc33d9f82cc40f3a8f7a7af01f7f5.png   | Bin 0 -> 15780 bytes
+ .../5d13b43911144f2043376a28e5d34f241326f4be.webm  | Bin 0 -> 126031 bytes
+ .../5d187ce9af5a0faffebf672188ef2dd91c2d0a52.webm  | Bin 0 -> 221640 bytes
+ .../638784a580f4de5f48ef5f02554aefb149111d7a.webm  | Bin 0 -> 152899 bytes
+ .../65024823c806f6786b9f42c461d31dd54187c70e.webm  | Bin 0 -> 131000 bytes
+ .../65673e81b1a100d911c7b72b73619aee69680bf3.md    | 163 +++++++++++++
+ .../67ea9e7976645b88315746091b5d0543695aa06b.zip   | Bin 0 -> 241409 bytes
+ .../6acea3bb5f13d22c05484c35858b87b14e78f54f.webm  | Bin 0 -> 207249 bytes
+ .../6ad8cb363319960014be616ac8322358e43494a8.md    | 232 ++++++++++++++++++
+ .../6c86cdb5fbd078fff6654f4056bf4c08e24ea1d8.zip   | Bin 0 -> 1069256 bytes
+ .../6d3d2e26ad4f310326bb049a53812bcffcfeb773.zip   | Bin 0 -> 95570 bytes
+ .../6e91da9b46e45a075126ccd98ae3401f957caa7f.png   | Bin 0 -> 28201 bytes
+ .../6f04ed0a628599cf9a058a9afb09e389b1bc863a.zip   | Bin 0 -> 337837 bytes
+ .../6f5ffdca8aa8ebe8fca2f2f40d66a00c34d6eecb.webm  | Bin 0 -> 173964 bytes
+ .../700ba15a5e9bbd162888560d9443e8d71ee203c8.zip   | Bin 0 -> 564684 bytes
+ .../70c30c7e705bc13aa487e83d041fd138cfb2719d.webm  | Bin 0 -> 288791 bytes
+ .../73338f02ed2fbd5a3e817fa9efd8a51809af8ee8.png   | Bin 0 -> 15826 bytes
+ .../757cb268beb97df7f284f6f06d13dc7d192894fa.zip   | Bin 0 -> 546053 bytes
+ .../7741ba5e76422dd005b0baa6ce9166067d485b93.md    | 240 +++++++++++++++++++
+ .../79b06c67549d1a5b80987354306ff0106545f21f.png   | Bin 0 -> 24029 bytes
+ .../7ac6e79e923ed49588a75c950d9f9564dcb4779e.png   | Bin 0 -> 77058 bytes
+ .../7d6831fa9e4c1d83133cad82dc661d425aabfc1a.zip   | Bin 0 -> 151829 bytes
+ .../7dfd9cf1f963ec916ad420b3d7254aa92997394b.png   | Bin 0 -> 14456 bytes
+ .../7e3806136731633c11ca749c1b7168663035093e.webm  | Bin 0 -> 159096 bytes
+ .../7e6c2ff268ff776bf2450673741cb144b99044fe.png   | Bin 0 -> 71872 bytes
+ .../8236eb161037e1c9e612e8cf2bc3263002fd3306.webm  | Bin 0 -> 52815 bytes
+ .../8912b6939d4a74235dc989866eecf7f8bcd8b731.webm  | Bin 0 -> 188585 bytes
+ .../89febe47db3b13b12889080b6a8ebc0113276b51.md    | 159 +++++++++++++
+ .../8e87599ba28323267a59e893ac05dcac43e19da8.png   | Bin 0 -> 14448 bytes
+ .../8ea2f176dbd86a379439503b5e126a4cb0e8eaf8.zip   | Bin 0 -> 580378 bytes
+ .../8effd7758715a5ace680291a355d9ce51d453c7c.png   | Bin 0 -> 25434 bytes
+ .../8f65e3fa69097d80e53552fe0ce2547c226991f5.webm  | Bin 0 -> 160444 bytes
+ .../8ffc990aa02b52c1fcfbde2404bd813ae1e53743.webm  | Bin 0 -> 154297 bytes
+ .../913e7fe92d092cf955c2d0ed96163465428fe3fb.png   | Bin 0 -> 27390 bytes
+ .../921c8fac69f8df535d276e84e63eb83b599847f1.zip   | Bin 0 -> 87996 bytes
+ .../9412345c72a561ce92c1555281cca9ea533af39d.zip   | Bin 0 -> 298393 bytes
+ .../944144be246d7025fc1ca5c5b46e3d33048193fa.png   | Bin 0 -> 27556 bytes
+ .../95d3aa399664bd9f8406edfd22a6f57d8d1f8210.png   | Bin 0 -> 76748 bytes
+ .../960de2a8bf5d0d75c552d40e4268a9dadb31ac7f.webm  | Bin 0 -> 57107 bytes
+ .../96f4a49c612e4998756ce3062867b7891fdd183c.md    | 232 ++++++++++++++++++
+ .../972a15ebeaff5bc6feb8d4c8bc1dd80b8030bbe0.zip   | Bin 0 -> 995664 bytes
+ .../97f38cbb0234b0b160ae38ee699146643a22e543.zip   | Bin 0 -> 264255 bytes
+ .../9c5fa9b31cbaa92dd6b0a8dd0971b92547d48b82.zip   | Bin 0 -> 652352 bytes
+ .../9df300af5529a3402d0450416108fd901a51b113.zip   | Bin 0 -> 105262 bytes
+ .../9f2b0908804f2242dc67653e1ac328af0e6023e6.zip   | Bin 0 -> 347214 bytes
+ .../a1397d5389931cf29df197d95b27b59b8f37c157.png   | Bin 0 -> 25278 bytes
+ .../a1a4b39237ab911c26e0a6a092e2209877789786.png   | Bin 0 -> 28286 bytes
+ .../a1dac8b518ce5f302c7d82ada4b8d064d54f534e.webm  | Bin 0 -> 139453 bytes
+ .../a2c51a84cd8b3f562815d45002beeee53f3fc823.png   | Bin 0 -> 72273 bytes
+ .../a3bc36c7e21e1f27e909cef93cb78cecb11e2e0d.webm  | Bin 0 -> 215595 bytes
+ .../a60a2dd96d7eabb539e4477d41647827efc61565.png   | Bin 0 -> 42651 bytes
+ .../aaa0d57cc597530b05d4d99fc9217a89897e180c.md    | 159 +++++++++++++
+ .../b2570dbc7a76e8d8809bfe0dc36dff2729921aef.webm  | Bin 0 -> 250921 bytes
+ .../b30afa3296edc03a26653bdd90525501d4c4de35.zip   | Bin 0 -> 261390 bytes
+ .../b32c3dd838fb75a9dbfd59391c36920ee907e5cf.md    | 178 ++++++++++++++
+ .../b5fa1f57088032257c69756d343507bbede30438.md    | 159 +++++++++++++
+ .../b9c90eda2dc5ab418dead6ede317f5304de971a0.zip   | Bin 0 -> 132601 bytes
+ .../ba18e38e52fe2cbb818a3c292d74116356301626.webm  | Bin 0 -> 215023 bytes
+ .../bc90653169cbc9542039e2c7877cfc7ebcf34a12.webm  | Bin 0 -> 150628 bytes
+ .../be4f9c6ae96f0748529180f7b0cfc9d49784f952.png   | Bin 0 -> 77153 bytes
+ .../c150583450cb08f6a57ade46163d0fe6128896a7.png   | Bin 0 -> 77130 bytes
+ .../c32036cf65ab851c42aac3076b261e32090f95b6.png   | Bin 0 -> 29213 bytes
+ .../c52eb07c2dff094184aba58ab09a3c21b70df7b3.webm  | Bin 0 -> 30206 bytes
+ .../c5e885e068f91038bebf35bdde52c562dee53cfe.webm  | Bin 0 -> 143072 bytes
+ .../c91d6788da8cff95defe36c5c5d1d3132333f0b5.webm  | Bin 0 -> 70695 bytes
+ .../c9c8b486fe7dc748f859e0cf0852ab974409adea.zip   | Bin 0 -> 961791 bytes
+ .../ca7d5f2cf60591ab7ede3d5eed8c5f2bf74fe7ba.zip   | Bin 0 -> 317190 bytes
+ .../cb8a85c5b32fcdba13b4945f7b8ce89d1d5ffabf.zip   | Bin 0 -> 484504 bytes
+ .../ccda74e3b8e7c102a103481746d969b14d985b24.zip   | Bin 0 -> 552280 bytes
+ .../ceb9d6658aa24215a4160eda46568f76d6ccb772.png   | Bin 0 -> 22748 bytes
+ .../cf69c6aab6e5af737d62d2f1175e4e83a4b6f63a.md    | 159 +++++++++++++
+ .../d0b6461f3dac3baf208baefa7e5cf628d127b027.zip   | Bin 0 -> 462593 bytes
+ .../d327d1171c1057314e0d0d41f25194eea25c2c57.webm  | Bin 0 -> 116187 bytes
+ .../d367b3a91202ae776a262ef8677d1f68f1f24128.zip   | Bin 0 -> 660438 bytes
+ .../d367ccb3b8e926693fdecb5a7d3ff07ec80d2349.png   | Bin 0 -> 65796 bytes
+ .../d62b3c507fc9e1ec961264f1a54201f081af980e.md    | 178 ++++++++++++++
+ .../d6ccc55d2190c094253d7909969edc079754c947.webm  | Bin 0 -> 137766 bytes
+ .../d71f0be922a327e4150b8c8e4035e4217a7e7eb9.zip   | Bin 0 -> 313124 bytes
+ .../dad8c9b285ccb812a6d4036fbec1b3634dd7e95d.md    | 263 +++++++++++++++++++++
+ .../dc4615e03f7456e492c04f96454998e1f281ac98.md    | 173 ++++++++++++++
+ .../dcbe3888f0179190a919178a0395cdcaac927ba6.webm  | Bin 0 -> 80857 bytes
+ .../dcdc26daa1fc2492e3e859f520cf618d68ca27e5.zip   | Bin 0 -> 493991 bytes
+ .../dec26169c697ba7089cd14f9a99039ed70e9a889.zip   | Bin 0 -> 1259673 bytes
+ .../e2f9c3ce7cacf7720375e4f81f42fa638e245395.md    | 159 +++++++++++++
+ .../e351fab308cef250539ce85f6aaf05af9157aedd.md    | 178 ++++++++++++++
+ .../e3fea5f5acf55d862c0966530e471a103d180723.webm  | Bin 0 -> 63760 bytes
+ .../e4f37a2c7976afe58192e86e57273705c4171ef4.zip   | Bin 0 -> 560769 bytes
+ .../e672793ca9ca0c95cbed53b13091cb9e162922ac.webm  | Bin 0 -> 74345 bytes
+ .../e8accbac42f39e7d27e4f0266daab9e6d8c2b658.webm  | Bin 0 -> 111320 bytes
+ .../e8f9cb6bd233d00b9e0f1f31c9743ba1dac32d7d.png   | Bin 0 -> 25994 bytes
+ .../ea4ec5dff26f6358a89f8c9c8319728e3a07b551.webm  | Bin 0 -> 201225 bytes
+ .../ea8636952a2e505e865adbd43077c057889807de.png   | Bin 0 -> 62553 bytes
+ .../ef2a4662069b4dce0ffaa3bfeedd2d5dd4fccd7b.png   | Bin 0 -> 66159 bytes
+ .../ef5e9047c6206c6c176707139f4649ebd0c6e166.webm  | Bin 0 -> 159840 bytes
+ .../f1ebcdd662353f293317c286bf3334d41b9d997d.zip   | Bin 0 -> 303174 bytes
+ .../f2cedd7908fc9d53260cc802164c6c461058fe41.zip   | Bin 0 -> 678126 bytes
+ .../f30cbb8248bb8a632502ad54278cc5019f75f154.webm  | Bin 0 -> 99571 bytes
+ .../f32f14b734896ad487e7867e9ad30fe4fb075f8f.webm  | Bin 0 -> 206719 bytes
+ .../f494f70ce056f0021f28348e51c19bbdf1a4df22.webm  | Bin 0 -> 248103 bytes
+ .../f5630ab19a96767dbef9dab4fb98edfe509ca4f3.png   | Bin 0 -> 27589 bytes
+ .../f9cf8eaa3eec8cc5b7bb5dfcb2408ef37c538a2b.webm  | Bin 0 -> 67813 bytes
+ .../fd97aa54ea13de1c12c254249a538a68368bd936.webm  | Bin 0 -> 102135 bytes
+ .../fd985a0318a0522c0ca98bcf22a590a8503e29e9.webm  | Bin 0 -> 58474 bytes
+ .../fda93244300de9ffeb00303ba77e9e9817e6ed42.webm  | Bin 0 -> 35728 bytes
+ .../ff06310c4bd0d76c015b1750392723020881e6e3.zip   | Bin 0 -> 387339 bytes
+ playwright-report/index.html                       |  59 +++++
+ .../trace/assets/codeMirrorModule-BEB2e8M3.js      |  32 +++
+ .../trace/assets/defaultSettingsView-D-g2vrvf.js   | 184 ++++++++++++++
+ .../trace/assets/urlMatch-L3liM589.js              |   1 +
+ .../trace/codeMirrorModule.-QdMvsKi.css            |   1 +
+ playwright-report/trace/codicon.DCmgc-ay.ttf       | Bin 0 -> 80340 bytes
+ .../trace/defaultSettingsView.C8BeHuxd.css         |   1 +
+ playwright-report/trace/index.B_TqY17P.css         |   1 +
+ playwright-report/trace/index.html                 |  44 ++++
+ playwright-report/trace/index.oNry3Hjv.js          |   1 +
+ playwright-report/trace/manifest.webmanifest       |  16 ++
+ playwright-report/trace/playwright-logo.svg        |   9 +
+ playwright-report/trace/snapshot.B_Jk1wbt.js       |   1 +
+ playwright-report/trace/snapshot.html              |  10 +
+ playwright-report/trace/sw.bundle.js               |   4 +
+ playwright-report/trace/uiMode.CYwC_gH1.js         |   5 +
+ playwright-report/trace/uiMode.CyMfwkXJ.css        |   1 +
+ playwright-report/trace/uiMode.html                |  18 ++
+ playwright-report/trace/xtermModule.kHJ-D0s7.css   |   1 +
+ .../0005c32b455debbf82707565dd43746a82d14048.zip   | Bin 0 -> 184022 bytes
+ .../0108bc9b290e557db03410733d291bcc746faf0c.webm  | Bin 0 -> 55959 bytes
+ .../04903e7c38d7a426b858d9be65dc3e3a07f87913.webm  | Bin 0 -> 253771 bytes
+ .../050c5ee190ae892d24d8842174b75c31a0327221.webm  | Bin 0 -> 30083 bytes
+ .../066621de499f1efe0f391c1afa3e7aa371b88b15.png   | Bin 0 -> 28186 bytes
+ .../06e3d7bc69f181076064a1d1d1abfe00ef51dfab.md    | 241 +++++++++++++++++++
+ .../09c7cdad51127966a4aee48dbb9c5b41e3235849.zip   | Bin 0 -> 1036112 bytes
+ .../0af1bdc3bd32d4c1e71ac1608479f43216a234f5.webm  | Bin 0 -> 97051 bytes
+ .../0c36c08ba50f2914ff5a706ccedd274b72e417ce.png   | Bin 0 -> 26045 bytes
+ .../0e5427ddc850de86498680885ec01a3024462f21.png   | Bin 0 -> 66051 bytes
+ .../0fd19f61f1429b38cec7a4c01ee1d9c289b8105c.md    | 147 ++++++++++++
+ .../10c47753e37bfa1614d94e74b7798ef48e395b47.webm  | Bin 0 -> 158942 bytes
+ .../10ce1ebb1d1542fb4630b4bc68eda844f8b81348.md    | 173 ++++++++++++++
+ .../11a2fd87155c34c3afb83b69dc74cf53527d8164.md    | 208 ++++++++++++++++
+ .../1259ea1bdbe1e9f445c5bf0790c06ef969a1fa76.webm  | Bin 0 -> 87833 bytes
+ .../125e8a3a35002a3612347e0ba2fa52b688308b43.md    | 178 ++++++++++++++
+ .../1428e0beef67659cfe85d1e19064454d77d24673.png   | Bin 0 -> 28056 bytes
+ .../14a14417fcfd59b67d22b1684406b1ed2db2f23e.png   | Bin 0 -> 29154 bytes
+ .../15137e77990ebf7ab598d30dd8c4bf0f2aaa2623.zip   | Bin 0 -> 94597 bytes
+ .../164e6324a2791461f2547fe3e9624eb05e89a3fd.zip   | Bin 0 -> 316676 bytes
+ .../16edf0e0201b671e85fe16360499b2ecf4939dac.zip   | Bin 0 -> 609698 bytes
+ .../178f3ead9b7038c8db68f84e75476427b92adbda.zip   | Bin 0 -> 1291574 bytes
+ .../17d9ce6080f17ad5b0c445a77174f6401b003e73.webm  | Bin 0 -> 79083 bytes
+ .../18b8291fedadf7ab25955124aeb3cbee93458c02.md    | 159 +++++++++++++
+ .../18feb7bcdbce4c6292daa16aa150064e3e195914.png   | Bin 0 -> 29270 bytes
+ .../1aa076db9257a25c5085aa4100825ed88eae8226.zip   | Bin 0 -> 326680 bytes
+ .../1aa898bbcbc0a13580f7c9419cb0b127bf957031.png   | Bin 0 -> 23972 bytes
+ .../1c3bd30862eb3ee361ee854dc8325665ccd93aa8.zip   | Bin 0 -> 478126 bytes
+ .../1c73d3cd2a23d8cb7808d9925f71bc66e9a5f16d.md    | 159 +++++++++++++
+ .../1ec7d8b28b8c0742c239c137ed14ec436a3e9f38.zip   | Bin 0 -> 1306476 bytes
+ .../1f895bca4482add83bdf7c42b62afa2d273404d9.zip   | Bin 0 -> 568188 bytes
+ .../20452e578e7d0a161e7613670a648c239516947d.webm  | Bin 0 -> 88477 bytes
+ .../23c3d0fe6755c43cc79ef4ef55d8887c8cb59704.webm  | Bin 0 -> 97708 bytes
+ .../256780d1369f1dd6d9683d636c82e48af6cfbb86.webm  | Bin 0 -> 49696 bytes
+ .../297d4453b9f842e9dde249b8bbd089a13b5f8be4.zip   | Bin 0 -> 190195 bytes
+ .../299681cbf990627dd472fac162e8034a4c3ceab7.png   | Bin 0 -> 29466 bytes
+ .../2cd3924d2fb1b87456c5afb873341a6b8062915e.zip   | Bin 0 -> 500494 bytes
+ .../2e00f2be4a72314843f09ab7cdd237d5dc7d3742.png   | Bin 0 -> 26116 bytes
+ .../2e24ed49d124a20142eef9a5c6eb237ec925ac9e.zip   | Bin 0 -> 616711 bytes
+ .../320b2c2da7998d5057db33006fcd88f840b9d885.zip   | Bin 0 -> 173018 bytes
+ .../3476f7be630be2794216750ce04d21b555f9ae4e.png   | Bin 0 -> 29786 bytes
+ .../39193a70b20fbebd7b774be977216e0de248e64b.zip   | Bin 0 -> 1016135 bytes
+ .../3b2da7735152b22bbc65a0cfc0aebb66f62cfa49.md    | 178 ++++++++++++++
+ .../3b4da7c9fd8e318068c84efac832b04ee89856b4.png   | Bin 0 -> 71981 bytes
+ .../3c9a0d87fc723622a00ef6f00ecc7282d50c3856.png   | Bin 0 -> 27683 bytes
+ .../401ab3cd1e3b75dd34e5b26b5755dd16a52e74fd.png   | Bin 0 -> 42696 bytes
+ .../4449d7bcf5be3d78f1df579fb2699fb54c33be71.webm  | Bin 0 -> 35177 bytes
+ .../47765b7a491dcd3948569916fa498423b3281cdc.zip   | Bin 0 -> 384193 bytes
+ .../4804f25de850fe8987460aff608040e428184d7b.md    | 178 ++++++++++++++
+ .../4b2c3c6c9ae40e8b9d405b33a6735f4ca118bd00.zip   | Bin 0 -> 1546057 bytes
+ .../4ccf36417e63b0093c9744bc39e40c0e7bff588a.md    | 163 +++++++++++++
+ .../4cd6c929a655fc8ed939bb1f4158079415d9bcac.zip   | Bin 0 -> 182040 bytes
+ .../5120a60b44997aef5f2f530e306cea5c9c0dde3e.md    | 159 +++++++++++++
+ .../516bcde1c0e9ea0e0b44525606ccd35ee6d334e7.webm  | Bin 0 -> 222443 bytes
+ .../5382aba4d185bda77a7f0602db5b145fd577359a.zip   | Bin 0 -> 358038 bytes
+ .../5385918be2e543c1f8d95cf85e0443c302695e59.webm  | Bin 0 -> 147647 bytes
+ .../549312e89f3cc04d60fb94e8b28a6cbd01a6cca3.zip   | Bin 0 -> 255781 bytes
+ .../54a097977f17f1324df46d2b5437a0d41f739abd.md    | 159 +++++++++++++
+ .../55ed82416de428f5d21f2a656dbf623af22f3b1c.md    | 256 ++++++++++++++++++++
+ .../560614968192571ee2aaded16572b93b0e249106.md    | 178 ++++++++++++++
+ .../561360ab1a242cfa2e4f254d534854504678ecfe.webm  | Bin 0 -> 247223 bytes
+ .../567d4d2486b7ca46dbf8ed87626f4dd553927121.png   | Bin 0 -> 25878 bytes
+ .../5844d284f08bb0c23fbe1ece8501f777e65772c8.zip   | Bin 0 -> 240856 bytes
+ .../58c173fa9173664d8d3b513ac3cb8ea2617e41fb.webm  | Bin 0 -> 93473 bytes
+ .../59ded49458c1701e9cfa5e97cb3361ea2f02f2b1.md    | 240 +++++++++++++++++++
+ .../5b0c9a718a7fc33d9f82cc40f3a8f7a7af01f7f5.png   | Bin 0 -> 15780 bytes
+ .../5d13b43911144f2043376a28e5d34f241326f4be.webm  | Bin 0 -> 126031 bytes
+ .../5d187ce9af5a0faffebf672188ef2dd91c2d0a52.webm  | Bin 0 -> 221640 bytes
+ .../638784a580f4de5f48ef5f02554aefb149111d7a.webm  | Bin 0 -> 152899 bytes
+ .../65024823c806f6786b9f42c461d31dd54187c70e.webm  | Bin 0 -> 131000 bytes
+ .../65673e81b1a100d911c7b72b73619aee69680bf3.md    | 163 +++++++++++++
+ .../67ea9e7976645b88315746091b5d0543695aa06b.zip   | Bin 0 -> 241409 bytes
+ .../6acea3bb5f13d22c05484c35858b87b14e78f54f.webm  | Bin 0 -> 207249 bytes
+ .../6ad8cb363319960014be616ac8322358e43494a8.md    | 232 ++++++++++++++++++
+ .../6c86cdb5fbd078fff6654f4056bf4c08e24ea1d8.zip   | Bin 0 -> 1069256 bytes
+ .../6d3d2e26ad4f310326bb049a53812bcffcfeb773.zip   | Bin 0 -> 95570 bytes
+ .../6e91da9b46e45a075126ccd98ae3401f957caa7f.png   | Bin 0 -> 28201 bytes
+ .../6f04ed0a628599cf9a058a9afb09e389b1bc863a.zip   | Bin 0 -> 337837 bytes
+ .../6f5ffdca8aa8ebe8fca2f2f40d66a00c34d6eecb.webm  | Bin 0 -> 173964 bytes
+ .../700ba15a5e9bbd162888560d9443e8d71ee203c8.zip   | Bin 0 -> 564684 bytes
+ .../70c30c7e705bc13aa487e83d041fd138cfb2719d.webm  | Bin 0 -> 288791 bytes
+ .../73338f02ed2fbd5a3e817fa9efd8a51809af8ee8.png   | Bin 0 -> 15826 bytes
+ .../757cb268beb97df7f284f6f06d13dc7d192894fa.zip   | Bin 0 -> 546053 bytes
+ .../7741ba5e76422dd005b0baa6ce9166067d485b93.md    | 240 +++++++++++++++++++
+ .../79b06c67549d1a5b80987354306ff0106545f21f.png   | Bin 0 -> 24029 bytes
+ .../7ac6e79e923ed49588a75c950d9f9564dcb4779e.png   | Bin 0 -> 77058 bytes
+ .../7d6831fa9e4c1d83133cad82dc661d425aabfc1a.zip   | Bin 0 -> 151829 bytes
+ .../7dfd9cf1f963ec916ad420b3d7254aa92997394b.png   | Bin 0 -> 14456 bytes
+ .../7e3806136731633c11ca749c1b7168663035093e.webm  | Bin 0 -> 159096 bytes
+ .../7e6c2ff268ff776bf2450673741cb144b99044fe.png   | Bin 0 -> 71872 bytes
+ .../8236eb161037e1c9e612e8cf2bc3263002fd3306.webm  | Bin 0 -> 52815 bytes
+ .../8912b6939d4a74235dc989866eecf7f8bcd8b731.webm  | Bin 0 -> 188585 bytes
+ .../89febe47db3b13b12889080b6a8ebc0113276b51.md    | 159 +++++++++++++
+ .../8e87599ba28323267a59e893ac05dcac43e19da8.png   | Bin 0 -> 14448 bytes
+ .../8ea2f176dbd86a379439503b5e126a4cb0e8eaf8.zip   | Bin 0 -> 580378 bytes
+ .../8effd7758715a5ace680291a355d9ce51d453c7c.png   | Bin 0 -> 25434 bytes
+ .../8f65e3fa69097d80e53552fe0ce2547c226991f5.webm  | Bin 0 -> 160444 bytes
+ .../8ffc990aa02b52c1fcfbde2404bd813ae1e53743.webm  | Bin 0 -> 154297 bytes
+ .../913e7fe92d092cf955c2d0ed96163465428fe3fb.png   | Bin 0 -> 27390 bytes
+ .../921c8fac69f8df535d276e84e63eb83b599847f1.zip   | Bin 0 -> 87996 bytes
+ .../9412345c72a561ce92c1555281cca9ea533af39d.zip   | Bin 0 -> 298393 bytes
+ .../944144be246d7025fc1ca5c5b46e3d33048193fa.png   | Bin 0 -> 27556 bytes
+ .../95d3aa399664bd9f8406edfd22a6f57d8d1f8210.png   | Bin 0 -> 76748 bytes
+ .../960de2a8bf5d0d75c552d40e4268a9dadb31ac7f.webm  | Bin 0 -> 57107 bytes
+ .../96f4a49c612e4998756ce3062867b7891fdd183c.md    | 232 ++++++++++++++++++
+ .../972a15ebeaff5bc6feb8d4c8bc1dd80b8030bbe0.zip   | Bin 0 -> 995664 bytes
+ .../97f38cbb0234b0b160ae38ee699146643a22e543.zip   | Bin 0 -> 264255 bytes
+ .../9c5fa9b31cbaa92dd6b0a8dd0971b92547d48b82.zip   | Bin 0 -> 652352 bytes
+ .../9df300af5529a3402d0450416108fd901a51b113.zip   | Bin 0 -> 105262 bytes
+ .../9f2b0908804f2242dc67653e1ac328af0e6023e6.zip   | Bin 0 -> 347214 bytes
+ .../a1397d5389931cf29df197d95b27b59b8f37c157.png   | Bin 0 -> 25278 bytes
+ .../a1a4b39237ab911c26e0a6a092e2209877789786.png   | Bin 0 -> 28286 bytes
+ .../a1dac8b518ce5f302c7d82ada4b8d064d54f534e.webm  | Bin 0 -> 139453 bytes
+ .../a2c51a84cd8b3f562815d45002beeee53f3fc823.png   | Bin 0 -> 72273 bytes
+ .../a3bc36c7e21e1f27e909cef93cb78cecb11e2e0d.webm  | Bin 0 -> 215595 bytes
+ .../a60a2dd96d7eabb539e4477d41647827efc61565.png   | Bin 0 -> 42651 bytes
+ .../aaa0d57cc597530b05d4d99fc9217a89897e180c.md    | 159 +++++++++++++
+ .../b2570dbc7a76e8d8809bfe0dc36dff2729921aef.webm  | Bin 0 -> 250921 bytes
+ .../b30afa3296edc03a26653bdd90525501d4c4de35.zip   | Bin 0 -> 261390 bytes
+ .../b32c3dd838fb75a9dbfd59391c36920ee907e5cf.md    | 178 ++++++++++++++
+ .../b5fa1f57088032257c69756d343507bbede30438.md    | 159 +++++++++++++
+ .../b9c90eda2dc5ab418dead6ede317f5304de971a0.zip   | Bin 0 -> 132601 bytes
+ .../ba18e38e52fe2cbb818a3c292d74116356301626.webm  | Bin 0 -> 215023 bytes
+ .../bc90653169cbc9542039e2c7877cfc7ebcf34a12.webm  | Bin 0 -> 150628 bytes
+ .../be4f9c6ae96f0748529180f7b0cfc9d49784f952.png   | Bin 0 -> 77153 bytes
+ .../c150583450cb08f6a57ade46163d0fe6128896a7.png   | Bin 0 -> 77130 bytes
+ .../c32036cf65ab851c42aac3076b261e32090f95b6.png   | Bin 0 -> 29213 bytes
+ .../c52eb07c2dff094184aba58ab09a3c21b70df7b3.webm  | Bin 0 -> 30206 bytes
+ .../c5e885e068f91038bebf35bdde52c562dee53cfe.webm  | Bin 0 -> 143072 bytes
+ .../c91d6788da8cff95defe36c5c5d1d3132333f0b5.webm  | Bin 0 -> 70695 bytes
+ .../c9c8b486fe7dc748f859e0cf0852ab974409adea.zip   | Bin 0 -> 961791 bytes
+ .../ca7d5f2cf60591ab7ede3d5eed8c5f2bf74fe7ba.zip   | Bin 0 -> 317190 bytes
+ .../cb8a85c5b32fcdba13b4945f7b8ce89d1d5ffabf.zip   | Bin 0 -> 484504 bytes
+ .../ccda74e3b8e7c102a103481746d969b14d985b24.zip   | Bin 0 -> 552280 bytes
+ .../ceb9d6658aa24215a4160eda46568f76d6ccb772.png   | Bin 0 -> 22748 bytes
+ .../cf69c6aab6e5af737d62d2f1175e4e83a4b6f63a.md    | 159 +++++++++++++
+ .../d0b6461f3dac3baf208baefa7e5cf628d127b027.zip   | Bin 0 -> 462593 bytes
+ .../d327d1171c1057314e0d0d41f25194eea25c2c57.webm  | Bin 0 -> 116187 bytes
+ .../d367b3a91202ae776a262ef8677d1f68f1f24128.zip   | Bin 0 -> 660438 bytes
+ .../d367ccb3b8e926693fdecb5a7d3ff07ec80d2349.png   | Bin 0 -> 65796 bytes
+ .../d62b3c507fc9e1ec961264f1a54201f081af980e.md    | 178 ++++++++++++++
+ .../d6ccc55d2190c094253d7909969edc079754c947.webm  | Bin 0 -> 137766 bytes
+ .../d71f0be922a327e4150b8c8e4035e4217a7e7eb9.zip   | Bin 0 -> 313124 bytes
+ .../dad8c9b285ccb812a6d4036fbec1b3634dd7e95d.md    | 263 +++++++++++++++++++++
+ .../dc4615e03f7456e492c04f96454998e1f281ac98.md    | 173 ++++++++++++++
+ .../dcbe3888f0179190a919178a0395cdcaac927ba6.webm  | Bin 0 -> 80857 bytes
+ .../dcdc26daa1fc2492e3e859f520cf618d68ca27e5.zip   | Bin 0 -> 493991 bytes
+ .../dec26169c697ba7089cd14f9a99039ed70e9a889.zip   | Bin 0 -> 1259673 bytes
+ .../e2f9c3ce7cacf7720375e4f81f42fa638e245395.md    | 159 +++++++++++++
+ .../e351fab308cef250539ce85f6aaf05af9157aedd.md    | 178 ++++++++++++++
+ .../e3fea5f5acf55d862c0966530e471a103d180723.webm  | Bin 0 -> 63760 bytes
+ .../e4f37a2c7976afe58192e86e57273705c4171ef4.zip   | Bin 0 -> 560769 bytes
+ .../e672793ca9ca0c95cbed53b13091cb9e162922ac.webm  | Bin 0 -> 74345 bytes
+ .../e8accbac42f39e7d27e4f0266daab9e6d8c2b658.webm  | Bin 0 -> 111320 bytes
+ .../e8f9cb6bd233d00b9e0f1f31c9743ba1dac32d7d.png   | Bin 0 -> 25994 bytes
+ .../ea4ec5dff26f6358a89f8c9c8319728e3a07b551.webm  | Bin 0 -> 201225 bytes
+ .../ea8636952a2e505e865adbd43077c057889807de.png   | Bin 0 -> 62553 bytes
+ .../ef2a4662069b4dce0ffaa3bfeedd2d5dd4fccd7b.png   | Bin 0 -> 66159 bytes
+ .../ef5e9047c6206c6c176707139f4649ebd0c6e166.webm  | Bin 0 -> 159840 bytes
+ .../f1ebcdd662353f293317c286bf3334d41b9d997d.zip   | Bin 0 -> 303174 bytes
+ .../f2cedd7908fc9d53260cc802164c6c461058fe41.zip   | Bin 0 -> 678126 bytes
+ .../f30cbb8248bb8a632502ad54278cc5019f75f154.webm  | Bin 0 -> 99571 bytes
+ .../f32f14b734896ad487e7867e9ad30fe4fb075f8f.webm  | Bin 0 -> 206719 bytes
+ .../f494f70ce056f0021f28348e51c19bbdf1a4df22.webm  | Bin 0 -> 248103 bytes
+ .../f5630ab19a96767dbef9dab4fb98edfe509ca4f3.png   | Bin 0 -> 27589 bytes
+ .../f9cf8eaa3eec8cc5b7bb5dfcb2408ef37c538a2b.webm  | Bin 0 -> 67813 bytes
+ .../fd97aa54ea13de1c12c254249a538a68368bd936.webm  | Bin 0 -> 102135 bytes
+ .../fd985a0318a0522c0ca98bcf22a590a8503e29e9.webm  | Bin 0 -> 58474 bytes
+ .../fda93244300de9ffeb00303ba77e9e9817e6ed42.webm  | Bin 0 -> 35728 bytes
+ .../ff06310c4bd0d76c015b1750392723020881e6e3.zip   | Bin 0 -> 387339 bytes
+ reports/full-suite-html-report/index.html          |  59 +++++
+ .../trace/assets/codeMirrorModule-BEB2e8M3.js      |  32 +++
+ .../trace/assets/defaultSettingsView-D-g2vrvf.js   | 184 ++++++++++++++
+ .../trace/assets/urlMatch-L3liM589.js              |   1 +
+ .../trace/codeMirrorModule.-QdMvsKi.css            |   1 +
+ .../trace/codicon.DCmgc-ay.ttf                     | Bin 0 -> 80340 bytes
+ .../trace/defaultSettingsView.C8BeHuxd.css         |   1 +
+ .../trace/index.B_TqY17P.css                       |   1 +
+ reports/full-suite-html-report/trace/index.html    |  44 ++++
+ .../full-suite-html-report/trace/index.oNry3Hjv.js |   1 +
+ .../trace/manifest.webmanifest                     |  16 ++
+ .../trace/playwright-logo.svg                      |   9 +
+ .../trace/snapshot.B_Jk1wbt.js                     |   1 +
+ reports/full-suite-html-report/trace/snapshot.html |  10 +
+ reports/full-suite-html-report/trace/sw.bundle.js  |   4 +
+ .../trace/uiMode.CYwC_gH1.js                       |   5 +
+ .../trace/uiMode.CyMfwkXJ.css                      |   1 +
+ reports/full-suite-html-report/trace/uiMode.html   |  18 ++
+ .../trace/xtermModule.kHJ-D0s7.css                 |   1 +
+ 379 files changed, 11615 insertions(+)
+
+commit 9ee9ab3c5d6e50eda3206f1fdd6d25c2dc50a6be
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:51:36 +0700
+
+    test(fr12): chạy FR-12 trên 3 trình duyệt (36 lượt), lưu HTML report có định danh và 5 ảnh lỗi
+
+ AI_Audit_Report.md                                 |   8 +-
+ Prompt_log.md                                      |  26 +++
+ .../03be8d50562b2cad798a5e8934400eadc72d34e1.webm  | Bin 0 -> 51679 bytes
+ .../066621de499f1efe0f391c1afa3e7aa371b88b15.png   | Bin 0 -> 28186 bytes
+ .../0c36c08ba50f2914ff5a706ccedd274b72e417ce.png   | Bin 0 -> 26045 bytes
+ .../1428e0beef67659cfe85d1e19064454d77d24673.png   | Bin 0 -> 28056 bytes
+ .../14a14417fcfd59b67d22b1684406b1ed2db2f23e.png   | Bin 0 -> 29154 bytes
+ .../199b63463534430995c0c196ff73872cbcafa693.zip   | Bin 0 -> 115725 bytes
+ .../1a9af2256ba7fca3230f8f8539fb2c94cf0c5c4d.webm  | Bin 0 -> 30073 bytes
+ .../1d8bc442f33c61afdd32d4dfa8ded4713343aedf.webm  | Bin 0 -> 55959 bytes
+ .../2e00f2be4a72314843f09ab7cdd237d5dc7d3742.png   | Bin 0 -> 26116 bytes
+ .../3476f7be630be2794216750ce04d21b555f9ae4e.png   | Bin 0 -> 29786 bytes
+ .../371e39ea7f126efa398056e47061fb2c60980f28.png   | Bin 0 -> 65800 bytes
+ .../3b2da7735152b22bbc65a0cfc0aebb66f62cfa49.md    | 178 ++++++++++++++++++++
+ .../3b4da7c9fd8e318068c84efac832b04ee89856b4.png   | Bin 0 -> 71981 bytes
+ .../404507b2e2658ecab7a2fcdc06090e2b095086b9.zip   | Bin 0 -> 105180 bytes
+ .../415fe70d38d320c15f73511d5d55727c43804bfe.webm  | Bin 0 -> 30206 bytes
+ .../477c3fa869607db40ffc9dcec94a7fa2f30b9e8f.zip   | Bin 0 -> 185301 bytes
+ .../560614968192571ee2aaded16572b93b0e249106.md    | 178 ++++++++++++++++++++
+ .../5638194ceaafef88c7f2684f2fea2b65e4f822b1.webm  | Bin 0 -> 54652 bytes
+ .../6bad8b6a1f7abc873023e9a88af45b0f6f8321eb.zip   | Bin 0 -> 284241 bytes
+ .../6c5d976456a0f1280632c60b2f80a3100bfe9b11.webm  | Bin 0 -> 56861 bytes
+ .../6e91da9b46e45a075126ccd98ae3401f957caa7f.png   | Bin 0 -> 28201 bytes
+ .../7087c42c44fdeec53fa7219a031570dd42e697e4.zip   | Bin 0 -> 312633 bytes
+ .../7e9a31e8a193a3e4c093ca3e43de12a9928f2c34.webm  | Bin 0 -> 99593 bytes
+ .../824170ac9611d5adbda0c6bc7ab64e4f31f19be0.webm  | Bin 0 -> 63857 bytes
+ .../8491ddf60c55e984f917e25fa820d843520d20fd.zip   | Bin 0 -> 322078 bytes
+ .../89056494879976f979fafd4f98997b4a35a77da8.webm  | Bin 0 -> 98492 bytes
+ .../89c6f041d2f7ec5f09bc8d1390ac49e9515bce30.zip   | Bin 0 -> 149266 bytes
+ .../91fe34ebe2bb02db25740142c7e26ba13c7d896b.webm  | Bin 0 -> 101889 bytes
+ .../967d09b07e4406fbc18082f9481723b4b093adac.md    | 178 ++++++++++++++++++++
+ .../9784ecf24acd7e0c070bc396c73423bd669918d9.png   | Bin 0 -> 25887 bytes
+ .../995c7c0c6b1bde41bd22b7ad715c32f7418659f7.png   | Bin 0 -> 25989 bytes
+ .../a1a4b39237ab911c26e0a6a092e2209877789786.png   | Bin 0 -> 28286 bytes
+ .../a2c51a84cd8b3f562815d45002beeee53f3fc823.png   | Bin 0 -> 72273 bytes
+ .../aa6bcbcc60c0fd123b925e07d065191319915855.zip   | Bin 0 -> 148585 bytes
+ .../ad39589f051536270cba9e13f5f62e04acf4d37d.webm  | Bin 0 -> 73228 bytes
+ .../b0bc82813c8babf5ee6fe07d968cbc7cf9d4b120.webm  | Bin 0 -> 93783 bytes
+ .../b32c3dd838fb75a9dbfd59391c36920ee907e5cf.md    | 178 ++++++++++++++++++++
+ .../c86d5944c108ccbc90bbd2df77ce4b1e0481a560.zip   | Bin 0 -> 192810 bytes
+ .../c8a098113cd01e12d91fe72ac3ac2d63801d8481.png   | Bin 0 -> 77056 bytes
+ .../cc78b9163c666de87b9736e78480ddc68bc23fbb.md    | 178 ++++++++++++++++++++
+ .../cecea499967468822442c58c48e828b0003508f5.zip   | Bin 0 -> 95541 bytes
+ .../d2323eb383b022f72b505960d869daa5aa6f3c2c.webm  | Bin 0 -> 35728 bytes
+ .../d429692baa26f962fe9f0e9c64cf1b2e3876613e.md    | 178 ++++++++++++++++++++
+ .../dcfd2d8fe91cd5c4aa9e3363c5bc0d80b3f470da.zip   | Bin 0 -> 150499 bytes
+ .../e351fab308cef250539ce85f6aaf05af9157aedd.md    | 178 ++++++++++++++++++++
+ .../e6e64e9143d9eb9eed091eb4e7e6b75884dd6f5c.zip   | Bin 0 -> 181975 bytes
+ .../ef2a4662069b4dce0ffaa3bfeedd2d5dd4fccd7b.png   | Bin 0 -> 66159 bytes
+ .../f28ec27d23fc82f65431f62f1b3361914fd09d98.zip   | Bin 0 -> 295051 bytes
+ .../f59e58390b3835e466b7f4a85828b0493fc0adc8.zip   | Bin 0 -> 276913 bytes
+ .../f6f5405111d15347a4415dd5dfd903e0031c8718.zip   | Bin 0 -> 91254 bytes
+ .../f8d1b0167207bb9d9bcf64e8cccf28794eec159a.webm  | Bin 0 -> 35177 bytes
+ .../fa699a4315e5b5f3c9b7ee037af37d9614487a18.webm  | Bin 0 -> 100562 bytes
+ reports/fr12-html-report/index.html                |  59 +++++++
+ .../trace/assets/codeMirrorModule-BEB2e8M3.js      |  32 ++++
+ .../trace/assets/defaultSettingsView-D-g2vrvf.js   | 184 +++++++++++++++++++++
+ .../trace/assets/urlMatch-L3liM589.js              |   1 +
+ .../trace/codeMirrorModule.-QdMvsKi.css            |   1 +
+ .../fr12-html-report/trace/codicon.DCmgc-ay.ttf    | Bin 0 -> 80340 bytes
+ .../trace/defaultSettingsView.C8BeHuxd.css         |   1 +
+ reports/fr12-html-report/trace/index.B_TqY17P.css  |   1 +
+ reports/fr12-html-report/trace/index.html          |  44 +++++
+ reports/fr12-html-report/trace/index.oNry3Hjv.js   |   1 +
+ .../fr12-html-report/trace/manifest.webmanifest    |  16 ++
+ reports/fr12-html-report/trace/playwright-logo.svg |   9 +
+ .../fr12-html-report/trace/snapshot.B_Jk1wbt.js    |   1 +
+ reports/fr12-html-report/trace/snapshot.html       |  10 ++
+ reports/fr12-html-report/trace/sw.bundle.js        |   4 +
+ reports/fr12-html-report/trace/uiMode.CYwC_gH1.js  |   5 +
+ reports/fr12-html-report/trace/uiMode.CyMfwkXJ.css |   1 +
+ reports/fr12-html-report/trace/uiMode.html         |  18 ++
+ .../trace/xtermModule.kHJ-D0s7.css                 |   1 +
+ .../BUG_FR12_01_UserRoleAccessesAdminUsers.png     | Bin 0 -> 28186 bytes
+ ...UG_FR12_02_UserRoleAccessesAdminOrderStatus.png | Bin 0 -> 26045 bytes
+ .../BUG_FR12_03_UnprotectedCreateProductAPI.png    | Bin 0 -> 25887 bytes
+ .../fr12/BUG_FR12_04_TokenWithoutRoleAccepted.png  | Bin 0 -> 29786 bytes
+ .../fr12/BUG_FR12_05_GuestRoleTokenAccepted.png    | Bin 0 -> 28286 bytes
+ 78 files changed, 1666 insertions(+), 3 deletions(-)
+
+commit cd4eb562be15cbd20076a6c96976e3c15c454fe3
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:45:45 +0700
+
+    refactor(fr12): bổ sung 3 assertion patterns (HTTP status, localStorage, Admin UI) và banner kiểm toán
+
+ tests/fr12-access-control.spec.ts | 128 ++++++++++++++++++++++++++++++++++----
+ 1 file changed, 116 insertions(+), 12 deletions(-)
+
+commit 6d5d969247a095b5031def2377edec34d192d31e
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:44:39 +0700
+
+    fix(fr12): sửa cổng Web Admin 5174, selector placeholder, native alert và ký JWT HS256
+
+ tests/fr12-access-control.spec.ts | 83 +++++++++++++++++++++++++++++++++------
+ 1 file changed, 70 insertions(+), 13 deletions(-)
+
+commit 8617963befb3e3ad2bf569ae7b709684d49dbb99
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:43:55 +0700
+
+    feat(fr12): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-12
+
+ data/fr12_access_control.json     | 218 ++++++++++++++++++++++++++++++++++++++
+ tests/fr12-access-control.spec.ts |  34 ++++++
+ 2 files changed, 252 insertions(+)
+
+commit 195edbed5d160dffe2e492ee8e2b4dcb4bd87ca1
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:22:50 +0700
+
+    test(fr07): chạy FR-07 trên 3 trình duyệt (36 lượt), lưu HTML report có định danh và 6 ảnh lỗi
+
+ AI_Audit_Report.md                                 |   8 +-
+ Prompt_log.md                                      |  26 ++
+ .../003ed4593953f3eaf91aeef0d631417d955a3d3c.webm  | Bin 0 -> 260723 bytes
+ .../013d70a7b20d83adb1ce2140701a55ff29c9f4dd.zip   | Bin 0 -> 558558 bytes
+ .../03b033656c4c9388ac19d2768aab7625828b733c.webm  | Bin 0 -> 124354 bytes
+ .../06e3d7bc69f181076064a1d1d1abfe00ef51dfab.md    | 241 +++++++++++++++++++
+ .../091d28d198f4c2f63aad83f5b67fa2fe666256d1.webm  | Bin 0 -> 181046 bytes
+ .../10ce1ebb1d1542fb4630b4bc68eda844f8b81348.md    | 173 ++++++++++++++
+ .../11a2fd87155c34c3afb83b69dc74cf53527d8164.md    | 208 ++++++++++++++++
+ .../12b35bf6b0968c1c71763b88cc00fa60ff78b0a8.zip   | Bin 0 -> 556316 bytes
+ .../1489260b913f5b93cd72554eca10b3b093293232.zip   | Bin 0 -> 603029 bytes
+ .../1e203df431d3067416b22022ef0c08b0b42f38c6.webm  | Bin 0 -> 152899 bytes
+ .../21a19d7d1d66cd9e5b95edff1a71416856b7226b.zip   | Bin 0 -> 1517413 bytes
+ .../22f07d16a738427b60f758fba4ef480248b8591f.webm  | Bin 0 -> 179928 bytes
+ .../250ca62785211801e6d994027ee8a56883b69676.zip   | Bin 0 -> 665337 bytes
+ .../27cbf614bc3b0254d67b7e3819d844ee3871d70a.zip   | Bin 0 -> 1011497 bytes
+ .../2a48099dc605bfc09df70c29cb45e19c09f87d8e.zip   | Bin 0 -> 474936 bytes
+ .../2c8be40498abe6bf797b22cbd7b39aa8587d3283.zip   | Bin 0 -> 592482 bytes
+ .../2e740ba441c7afedbe5fb980a8bb85b11541ebe7.webm  | Bin 0 -> 59951 bytes
+ .../32ed14deca0856821b62a52a681b7fd31f7c7b35.zip   | Bin 0 -> 446909 bytes
+ .../3fb053629579ec6c2d09ef50c3d82475e6ddab46.webm  | Bin 0 -> 138034 bytes
+ .../401ab3cd1e3b75dd34e5b26b5755dd16a52e74fd.png   | Bin 0 -> 42696 bytes
+ .../4ccf36417e63b0093c9744bc39e40c0e7bff588a.md    | 163 +++++++++++++
+ .../52fe8cb85e0a8ee7538a7b7e510b1f4cecec0113.webm  | Bin 0 -> 79546 bytes
+ .../5551619e547004f50b6f0e412658dffbce544604.zip   | Bin 0 -> 387869 bytes
+ .../55ed82416de428f5d21f2a656dbf623af22f3b1c.md    | 256 ++++++++++++++++++++
+ .../5b0c9a718a7fc33d9f82cc40f3a8f7a7af01f7f5.png   | Bin 0 -> 15780 bytes
+ .../5ee24440b3bda5fd621450ccf50cf080cfeff8e9.zip   | Bin 0 -> 622746 bytes
+ .../5f6fa9654b3334076e5ee20681513a357d17f863.zip   | Bin 0 -> 1020422 bytes
+ .../64a02e9847505ab90718d83d5d810a062ba231ac.md    | 240 +++++++++++++++++++
+ .../65673e81b1a100d911c7b72b73619aee69680bf3.md    | 163 +++++++++++++
+ .../67e0ce4c72b65fd25bc26de2470aa0a30184e68f.webm  | Bin 0 -> 271705 bytes
+ .../6ad8cb363319960014be616ac8322358e43494a8.md    | 232 ++++++++++++++++++
+ .../6f6124a8ad20b9c3b7e7e1d85b4ae5ae18fcf32e.webm  | Bin 0 -> 97958 bytes
+ .../73338f02ed2fbd5a3e817fa9efd8a51809af8ee8.png   | Bin 0 -> 15826 bytes
+ .../79b06c67549d1a5b80987354306ff0106545f21f.png   | Bin 0 -> 24029 bytes
+ .../7a3792e125d50a1b142576f1ca6eabfcaf3b2829.zip   | Bin 0 -> 1369907 bytes
+ .../7b0082e3a105731be89c31e39eb43b4b7948aa4e.webm  | Bin 0 -> 116468 bytes
+ .../7dfd9cf1f963ec916ad420b3d7254aa92997394b.png   | Bin 0 -> 14456 bytes
+ .../7e6c2ff268ff776bf2450673741cb144b99044fe.png   | Bin 0 -> 71872 bytes
+ .../83d288104fd8e3b26648b3348fd1035517c1c07f.webm  | Bin 0 -> 97180 bytes
+ .../8cc93a9bdf72ca6db7c4e57d1c39a0f6e21aec44.zip   | Bin 0 -> 494106 bytes
+ .../8e87599ba28323267a59e893ac05dcac43e19da8.png   | Bin 0 -> 14448 bytes
+ .../913e7fe92d092cf955c2d0ed96163465428fe3fb.png   | Bin 0 -> 27390 bytes
+ .../91de7f8755d993650e90cdff0caba3e52ff276cf.webm  | Bin 0 -> 196534 bytes
+ .../91f64c20a5404897da8bac416b0448659eecdf47.webm  | Bin 0 -> 154616 bytes
+ .../92416d5327efb89db7fd0530ffd34e8a0f505e52.webm  | Bin 0 -> 208823 bytes
+ .../92472a93495a66b9a86197e62728dabfa049cada.webm  | Bin 0 -> 215039 bytes
+ .../96f4a49c612e4998756ce3062867b7891fdd183c.md    | 232 ++++++++++++++++++
+ .../9749a7282c412945f9f1f6e14d4786068d7dea27.zip   | Bin 0 -> 530113 bytes
+ .../9c19457c7efef081703ccebe2a81a6afa46f2025.webm  | Bin 0 -> 293499 bytes
+ .../9fa053200cea310942a24825520bcbea00c15a11.webm  | Bin 0 -> 57107 bytes
+ .../a1397d5389931cf29df197d95b27b59b8f37c157.png   | Bin 0 -> 25278 bytes
+ .../a60a2dd96d7eabb539e4477d41647827efc61565.png   | Bin 0 -> 42651 bytes
+ .../a65cf7b1805ec8d7bb64a66a97aa6fb956006f98.zip   | Bin 0 -> 1078792 bytes
+ .../a6dbe8666471a22406b0bb32c5b17974c8304a6f.zip   | Bin 0 -> 373839 bytes
+ .../aeb05c1b820e6b28b5d62d7f0d1afd450d4b5b12.md    | 163 +++++++++++++
+ .../b454e2c3d6dc144705d33dd78dd44ada914fb92d.webm  | Bin 0 -> 228860 bytes
+ .../c9367402bde92555da9cfc373fcaeac2b6de53a3.webm  | Bin 0 -> 81988 bytes
+ .../cb5e354013d327e364b41cf6a168616209575d10.zip   | Bin 0 -> 554242 bytes
+ .../cbc8c00f706823d84189e503ffdd8b70145f4910.zip   | Bin 0 -> 701189 bytes
+ .../ceb9d6658aa24215a4160eda46568f76d6ccb772.png   | Bin 0 -> 22748 bytes
+ .../d240a1f41c7118bf0b15de992bcea3713428fe7b.zip   | Bin 0 -> 385648 bytes
+ .../da03767a58a3284c4099043d466f4153f83ad3ec.zip   | Bin 0 -> 500727 bytes
+ .../dad8c9b285ccb812a6d4036fbec1b3634dd7e95d.md    | 263 +++++++++++++++++++++
+ .../dba048942d84c392222914b175548cdba6fdef7f.webm  | Bin 0 -> 152833 bytes
+ .../dc4615e03f7456e492c04f96454998e1f281ac98.md    | 173 ++++++++++++++
+ .../dd10df2e70f786ec4c21d9c17dd1a191d6fbc714.zip   | Bin 0 -> 563604 bytes
+ .../de651231f675d888a1c9f333cf7e65c562024030.webm  | Bin 0 -> 151964 bytes
+ .../dec9033f3568f8dc9e7ac52ac28fd6ea25520421.webm  | Bin 0 -> 130091 bytes
+ .../e6d5391276d049900a89fc5ad145f2c19bfe35cc.zip   | Bin 0 -> 1312428 bytes
+ .../e98d7aef5b40aeca62d4364cc9c92a5ea6dbdfb2.webm  | Bin 0 -> 289616 bytes
+ .../ea8636952a2e505e865adbd43077c057889807de.png   | Bin 0 -> 62553 bytes
+ .../f14a45f2c3e78be926dc993b41ea6b38882dddd9.zip   | Bin 0 -> 506267 bytes
+ .../fa79458402e503a859f5eef939868dd83d545432.md    | 240 +++++++++++++++++++
+ reports/fr07-html-report/index.html                |  59 +++++
+ .../trace/assets/codeMirrorModule-BEB2e8M3.js      |  32 +++
+ .../trace/assets/defaultSettingsView-D-g2vrvf.js   | 184 ++++++++++++++
+ .../trace/assets/urlMatch-L3liM589.js              |   1 +
+ .../trace/codeMirrorModule.-QdMvsKi.css            |   1 +
+ .../fr07-html-report/trace/codicon.DCmgc-ay.ttf    | Bin 0 -> 80340 bytes
+ .../trace/defaultSettingsView.C8BeHuxd.css         |   1 +
+ reports/fr07-html-report/trace/index.B_TqY17P.css  |   1 +
+ reports/fr07-html-report/trace/index.html          |  44 ++++
+ reports/fr07-html-report/trace/index.oNry3Hjv.js   |   1 +
+ .../fr07-html-report/trace/manifest.webmanifest    |  16 ++
+ reports/fr07-html-report/trace/playwright-logo.svg |   9 +
+ .../fr07-html-report/trace/snapshot.B_Jk1wbt.js    |   1 +
+ reports/fr07-html-report/trace/snapshot.html       |  10 +
+ reports/fr07-html-report/trace/sw.bundle.js        |   4 +
+ reports/fr07-html-report/trace/uiMode.CYwC_gH1.js  |   5 +
+ reports/fr07-html-report/trace/uiMode.CyMfwkXJ.css |   1 +
+ reports/fr07-html-report/trace/uiMode.html         |  18 ++
+ .../trace/xtermModule.kHJ-D0s7.css                 |   1 +
+ .../BUG_FR07_01_DuplicateItemCreatesNewRow.png     | Bin 0 -> 25278 bytes
+ ...BUG_FR07_02_MissingPlusMinusQuantityButtons.png | Bin 0 -> 22748 bytes
+ ...BUG_FR07_03_DeleteWithoutConfirmationDialog.png | Bin 0 -> 15780 bytes
+ .../BUG_FR07_04_EmptyCartMissingIllustration.png   | Bin 0 -> 15826 bytes
+ .../fr07/BUG_FR07_05_WrongTotalLabelTamTinh.png    | Bin 0 -> 22748 bytes
+ ...UG_FR07_06_WrongPriceHeaderAndContinueLabel.png | Bin 0 -> 22748 bytes
+ 100 files changed, 3167 insertions(+), 3 deletions(-)
+
+commit 936e1d0cba2751cd49a79bdddb9148bc420e00f4
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:16:15 +0700
+
+    refactor(fr07): triển khai 3 assertion patterns (URL, số lượng DOM, UI text/dialog) cho 12 TCs
+
+ tests/fr07-shopping-cart.spec.ts | 173 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 167 insertions(+), 6 deletions(-)
+
+commit df3ea1b4a4488de261a0097d16335be05ae601fc
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:15:24 +0700
+
+    fix(fr07): dùng điều hướng SPA trên Header để giữ state CartContext và xóa hard sleep
+
+ tests/fr07-shopping-cart.spec.ts | 26 ++++++++++++--------------
+ 1 file changed, 12 insertions(+), 14 deletions(-)
+
+commit d38e237657e4511493cd408a0e8fb43f00df6470
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:14:46 +0700
+
+    feat(fr07): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-07
+
+ data/fr07_shopping_cart.json     | 157 +++++++++++++++++++++++++++++++++++++++
+ tests/fr07-shopping-cart.spec.ts |  30 ++++++++
+ 2 files changed, 187 insertions(+)
+
+commit 1efb2dd16c655df1b75275a77776a019de7f2e39
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 23:02:54 +0700
+
+    test(fr01): chạy FR-01 trên 3 trình duyệt (36 lượt), lưu HTML report có định danh và ảnh lỗi
+
+ AI_Audit_Report.md                                 |   8 +-
+ Prompt_log.md                                      |  46 ++++++
+ playwright.config.ts                               |  25 +++
+ .../004c824cdc494897cf6005a32af201092f7361aa.png   | Bin 0 -> 27561 bytes
+ .../0fd19f61f1429b38cec7a4c01ee1d9c289b8105c.md    | 147 ++++++++++++++++
+ .../167dbb87d51686074c8e05ad6af75d67d28fd165.png   | Bin 0 -> 77285 bytes
+ .../17eaf806980010f169f596b1a9834703109d1028.zip   | Bin 0 -> 1019234 bytes
+ .../1aa898bbcbc0a13580f7c9419cb0b127bf957031.png   | Bin 0 -> 23972 bytes
+ .../1adfbe74103c91ac951efe414521ea7c80e1d584.zip   | Bin 0 -> 242083 bytes
+ .../1c9e0cf96f609771e0510ddab0feb145492c3f93.png   | Bin 0 -> 76920 bytes
+ .../209ec012d288cc238206facbc972f45bd453d972.webm  | Bin 0 -> 196877 bytes
+ .../34674d5de2dd67bdea530e33bd0a676d7c33d6a5.webm  | Bin 0 -> 159932 bytes
+ .../3ff89c402887ede669697f52b768290f470aaf22.png   | Bin 0 -> 29239 bytes
+ .../4c03d54ecc530f21da4086fcffc60e0b969d1ab4.webm  | Bin 0 -> 226479 bytes
+ .../4fb7e63f435ff858f339ad238a29de6fc051fd40.zip   | Bin 0 -> 276730 bytes
+ .../5328847c74873eee61673510f5d2c5c2203893ad.md    | 159 ++++++++++++++++++
+ .../5a743d86b5315dd40c9a60aa593ec8b4554208c4.webm  | Bin 0 -> 214821 bytes
+ .../67454f5cd7378822c1233ee292f4df9154481ef3.webm  | Bin 0 -> 161368 bytes
+ .../68d9aa79aea04f9d131ddf8eb03e3c507d16d7e0.png   | Bin 0 -> 27740 bytes
+ .../6c21ad22ce0aaf79a9f32ba915dd155037c5368a.md    | 159 ++++++++++++++++++
+ .../6dc3543e18453370db96e8798c820b05a078af0a.webm  | Bin 0 -> 219106 bytes
+ .../70f3beb32e3a1d33424dde03f789652f6c6bb4dc.zip   | Bin 0 -> 640747 bytes
+ .../74908161ef9c8d732022a91f900a5dbb39001c9d.zip   | Bin 0 -> 329936 bytes
+ .../798b74a81ad21cd5238ea66175817d878287efd9.webm  | Bin 0 -> 66789 bytes
+ .../7c20eec02ad5a0683f86728cff9502289ec8f718.png   | Bin 0 -> 76780 bytes
+ .../7f8dce22b37617d9f9b8ca7af712f4d19ccc1511.zip   | Bin 0 -> 384160 bytes
+ .../8c639b67cf94dfd731efc3dc17e561abef570b07.zip   | Bin 0 -> 282623 bytes
+ .../8c74cbcea1aa2f9dcf9acdcaff2815cdd83df9a0.webm  | Bin 0 -> 156830 bytes
+ .../8d15d53b7bf54884ff9b8f9c98bf2579591e147c.md    | 159 ++++++++++++++++++
+ .../8effd7758715a5ace680291a355d9ce51d453c7c.png   | Bin 0 -> 25434 bytes
+ .../914f02fc8a64c20d6a73764f403ab4e75e2a1dd2.webm  | Bin 0 -> 130564 bytes
+ .../915a172263a4dcef723478e2699c4798d4c1d77a.md    | 159 ++++++++++++++++++
+ .../ab9c42db94e44443da5d3e21e960801793a2d221.md    | 159 ++++++++++++++++++
+ .../b923fe4ee41ac95d839bf7acfc6144e6636e4ac6.md    | 159 ++++++++++++++++++
+ .../b9eb7fa8dd90b43017142f57e23e184bbaba9501.png   | Bin 0 -> 66077 bytes
+ .../ca06dca44f62f5e533873d740ad53e8fdd44453c.webm  | Bin 0 -> 178483 bytes
+ .../cc71d5da7784399acc8a928c4c3d436783eba489.zip   | Bin 0 -> 269776 bytes
+ .../cec9e74621b560d95eb62146bb1a545e85ee2b72.webm  | Bin 0 -> 92351 bytes
+ .../cf14ca4014b3803f775d0460b37e8b6d973a8be5.png   | Bin 0 -> 29262 bytes
+ .../d2833d0a5522de3540fbdb7fd15464052bc9a00f.png   | Bin 0 -> 27569 bytes
+ .../d3ea5c6ee93f2d42efc0dd11e792f4dcdc0a66d4.webm  | Bin 0 -> 159723 bytes
+ .../e432608ec34e1e431858c1c024f39ae5d466fe32.zip   | Bin 0 -> 1069261 bytes
+ .../e92f2a7bce2eed1f1d219f5a3228bb9bb2588d1c.md    | 159 ++++++++++++++++++
+ .../eab59afef45f543d754b60eee3ed8b974b48f7f8.png   | Bin 0 -> 29485 bytes
+ .../eccb935523c633016c8a08663905c32035874a7d.zip   | Bin 0 -> 317537 bytes
+ .../edd5e4f7999c8034d26165f3bf3797819088d839.md    | 159 ++++++++++++++++++
+ .../f143ac51a3a4c3fa7aab232f6cda19aa32891035.zip   | Bin 0 -> 334268 bytes
+ .../f197e2cb7ade59a416256f7fe998a2b691ba116f.md    | 159 ++++++++++++++++++
+ .../fc66b81ee4930cb4ce797ece8fd86e3701a79382.zip   | Bin 0 -> 1019572 bytes
+ reports/fr01-html-report/index.html                |  59 +++++++
+ .../trace/assets/codeMirrorModule-BEB2e8M3.js      |  32 ++++
+ .../trace/assets/defaultSettingsView-D-g2vrvf.js   | 184 +++++++++++++++++++++
+ .../trace/assets/urlMatch-L3liM589.js              |   1 +
+ .../trace/codeMirrorModule.-QdMvsKi.css            |   1 +
+ .../fr01-html-report/trace/codicon.DCmgc-ay.ttf    | Bin 0 -> 80340 bytes
+ .../trace/defaultSettingsView.C8BeHuxd.css         |   1 +
+ reports/fr01-html-report/trace/index.B_TqY17P.css  |   1 +
+ reports/fr01-html-report/trace/index.html          |  44 +++++
+ reports/fr01-html-report/trace/index.oNry3Hjv.js   |   1 +
+ .../fr01-html-report/trace/manifest.webmanifest    |  16 ++
+ reports/fr01-html-report/trace/playwright-logo.svg |   9 +
+ .../fr01-html-report/trace/snapshot.B_Jk1wbt.js    |   1 +
+ reports/fr01-html-report/trace/snapshot.html       |  10 ++
+ reports/fr01-html-report/trace/sw.bundle.js        |   4 +
+ reports/fr01-html-report/trace/uiMode.CYwC_gH1.js  |   5 +
+ reports/fr01-html-report/trace/uiMode.CyMfwkXJ.css |   1 +
+ reports/fr01-html-report/trace/uiMode.html         |  18 ++
+ .../trace/xtermModule.kHJ-D0s7.css                 |   1 +
+ ...R01_01_PasswordRegexRejectsValidSpecialChar.png | Bin 0 -> 27740 bytes
+ .../BUG_FR01_02_MissingConfirmPasswordField.png    | Bin 0 -> 23972 bytes
+ 70 files changed, 2043 insertions(+), 3 deletions(-)
+
+commit d89ff5d11623b8390f50f5c4f99b12448ea77edd
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 22:55:32 +0700
+
+    refactor(fr01): bổ sung 3 assertion patterns (URL, thông báo lỗi UI, trạng thái DOM/HTML5 validity)
+
+ tests/fr01-registration.spec.ts | 51 +++++++++++++++++++++++++++++++++++------
+ 1 file changed, 44 insertions(+), 7 deletions(-)
+
+commit c54ac8f7605627f5b66acfa6f0b77572d04cbf66
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 22:54:46 +0700
+
+    fix(fr01): sửa lỗi selector getByLabel, xóa waitForTimeout và cô lập email theo từng trình duyệt
+
+ tests/fr01-registration.spec.ts | 43 ++++++++++++++++++++++++++++-------------
+ 1 file changed, 30 insertions(+), 13 deletions(-)
+
+commit 1848d8b0fb081fc192a692d5ce584d9b624367e6
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 22:54:10 +0700
+
+    feat(fr01): thêm bộ dữ liệu JSON (12 TCs) và kịch bản ban đầu do AI sinh cho FR-01
+
+ data/fr01_registration.json     | 194 ++++++++++++++++++++++++++++++++++++++++
+ tests/fr01-registration.spec.ts |  31 +++++++
+ 2 files changed, 225 insertions(+)
+
+commit 3aad50b040b9e18a6d7487875a70a044eea48062
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 22:47:16 +0700
+
+    docs(agents): bổ sung Mục 4 quy trình Human Code Review và phân loại kết quả thực thi
+
+ AGENTS.md     | 28 ++++++++++++++++++++++++++++
+ Prompt_log.md | 23 +++++++++++++++++++++++
+ 2 files changed, 51 insertions(+)
+
+commit 6d8b808fdeb8bd8c4bc4dfa968b0b4bf462bec3e
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 22:42:12 +0700
+
+    chore(config): cấu hình Playwright 1.64.1 đa trình duyệt và custom reporter đóng dấu sinh viên (23120397)
+
+ .gitignore                        |  5 +++
+ AI_Audit_Report.md                |  5 ++-
+ Prompt_log.md                     | 23 ++++++++++++
+ package-lock.json                 | 78 +++++++++++++++++++++++++++++++++++++++
+ package.json                      | 20 ++++++++++
+ playwright.config.ts              | 70 +++++++++++++++++++++++++++++++++++
+ scripts/stamp-report.js           | 22 +++++++++++
+ scripts/student-stamp-reporter.ts | 63 +++++++++++++++++++++++++++++++
+ 8 files changed, 284 insertions(+), 2 deletions(-)
+
+commit 23041031db17014cff3ea38e41ed5300ff6c33f9
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 21:58:27 +0700
+
+    docs: khởi tạo AI_Audit_Report.md với thông tin sinh viên (23120397) và ghi Prompt #3
+
+ AI_Audit_Report.md | 46 ++++++++++++++++++++++++++++++++++++++++++++++
+ Prompt_log.md      | 25 +++++++++++++++++++++++++
+ 2 files changed, 71 insertions(+)
+
+commit f9d7f7cc7ca65cdd66ec8167315fad418b1b6f1c
+Author: Admin <ductuan28122005@gmail.com>
+Date:   2026-11-16 21:51:40 +0700
+
+    chore: khởi tạo kho lưu trữ HW04 với đề bài, AGENTS.md và Prompt_log.md
+
+ 2026.HW04.Automation Testing_En.pdf | Bin 0 -> 463412 bytes
+ AGENTS.md                           |  77 ++++++++++++++++++++++++++++++++++++
+ Prompt_log.md                       |  44 +++++++++++++++++++++
+ 3 files changed, 121 insertions(+)
